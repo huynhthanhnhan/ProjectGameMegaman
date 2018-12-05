@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Animations>
+
+
+  <Animation height="348" width="863" imagePath="jarfar.PNG" name="jafar1">
+
+    <sprite oH="590" oW="73" oY="9" oX="8" h="70" w="64" y="9" x="8"/>
+
+    <sprite oH="590" oW="73" oY="10" oX="80" h="69" w="57" y="10" x="80"/>
+
+    <sprite oH="590" oW="73" oY="11" oX="144" h="68" w="55" y="11" x="144"/>
+
+    <sprite oH="590" oW="73" oY="12" oX="208" h="67" w="51" y="12" x="208"/>
+
+    <sprite oH="590" oW="73" oY="11" oX="272" h="68" w="64" y="11" x="272"/>
+
+    <sprite oH="590" oW="73" oY="11" oX="344" h="68" w="82" y="11" x="344"/>
+
+    <sprite oH="590" oW="73" oY="11" oX="440" h="68" w="85" y="11" x="440"/>
+
+    <sprite oH="590" oW="73" oY="11" oX="536" h="68" w="68" y="11" x="536"/>
+
+  </Animation>
+
+
+  <Animation height="348" width="863" imagePath="jarfar.PNG" name="jafar2">
+
+    <sprite oH="850" oW="174" oY="118" oX="8" h="57" w="70" y="118" x="8"/>
+
+    <sprite oH="850" oW="174" oY="112" oX="88" h="63" w="64" y="112" x="88"/>
+
+    <sprite oH="850" oW="174" oY="104" oX="160" h="71" w="67" y="104" x="160"/>
+
+    <sprite oH="850" oW="174" oY="104" oX="240" h="71" w="71" y="104" x="240"/>
+
+    <sprite oH="850" oW="174" oY="92" oX="320" h="83" w="68" y="92" x="320"/>
+
+    <sprite oH="850" oW="174" oY="93" oX="400" h="82" w="68" y="93" x="400"/>
+
+    <sprite oH="850" oW="174" oY="94" oX="480" h="81" w="69" y="94" x="480"/>
+
+    <sprite oH="850" oW="174" oY="94" oX="560" h="81" w="69" y="94" x="560"/>
+
+    <sprite oH="850" oW="174" oY="93" oX="644" h="83" w="63" y="93" x="644"/>
+
+    <sprite oH="850" oW="174" oY="95" oX="716" h="81" w="64" y="95" x="716"/>
+
+    <sprite oH="850" oW="174" oY="116" oX="788" h="60" w="71" y="116" x="788"/>
+
+  </Animation>
+
+
+  <Animation height="348" width="863" imagePath="jarfar.PNG" name="fireJarfar">
+
+    <sprite oH="716" oW="368" oY="286" oX="8" h="49" w="74" y="286" x="8"/>
+
+    <sprite oH="716" oW="368" oY="288" oX="96" h="47" w="79" y="288" x="96"/>
+
+    <sprite oH="716" oW="368" oY="294" oX="184" h="41" w="98" y="294" x="184"/>
+
+    <sprite oH="716" oW="368" oY="295" oX="296" h="40" w="89" y="295" x="296"/>
+
+    <sprite oH="716" oW="368" oY="305" oX="400" h="30" w="76" y="305" x="400"/>
+
+    <sprite oH="716" oW="368" oY="305" oX="488" h="30" w="73" y="305" x="488"/>
+
+    <sprite oH="716" oW="368" oY="293" oX="572" h="42" w="60" y="293" x="572"/>
+
+    <sprite oH="716" oW="368" oY="285" oX="645" h="50" w="64" y="285" x="645"/>
+
+  </Animation>
+
+
+  <Animation height="348" width="863" imagePath="jarfar.PNG" name="jafarStar">
+
+    <sprite oH="193" oW="49" oY="226" oX="198" h="13" w="27" y="226" x="198"/>
+
+    <sprite oH="193" oW="49" oY="224" oX="238" h="15" w="23" y="224" x="238"/>
+
+    <sprite oH="193" oW="49" oY="225" oX="270" h="14" w="25" y="225" x="270"/>
+
+    <sprite oH="193" oW="49" oY="227" oX="310" h="12" w="13" y="227" x="310"/>
+
+    <sprite oH="193" oW="49" oY="226" oX="334" h="13" w="20" y="226" x="334"/>
+
+    <sprite oH="193" oW="49" oY="219" oX="366" h="20" w="30" y="219" x="366"/>
+
+  </Animation>
+
+
+  <Animation height="348" width="863" imagePath="jarfar.PNG" name="fire">
+
+    <sprite oH="153" oW="215" oY="193" oX="14" h="46" w="23" y="193" x="14"/>
+
+    <sprite oH="153" oW="215" oY="187" oX="46" h="52" w="21" y="187" x="46"/>
+
+    <sprite oH="153" oW="215" oY="193" oX="78" h="46" w="23" y="193" x="78"/>
+
+    <sprite oH="153" oW="215" oY="190" oX="110" h="49" w="26" y="190" x="110"/>
+
+    <sprite oH="153" oW="215" oY="194" oX="150" h="45" w="34" y="194" x="150"/>
+
+  </Animation>
+
+</Animations>

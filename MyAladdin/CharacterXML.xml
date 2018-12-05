@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Animations>
+	<Animation name="appearance" imagePath="Character.png" w="498" h="1053">
+		<sprite x="5" y="15" w="8" h="48" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="19" y="34" w="22" h="29" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="46" y="21" w="30" h="42" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="84" y="24" w="30" h="39" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="120" y="27" w="30" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="156" y="29" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="191" y="31" w="30" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="Stand" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="226" y="29" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="261" y="29" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="295" y="29" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="330" y="29" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="stand_shoot" imagePath="Character.png" w="498" h="1053">
+		<sprite x="365" y="29" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="402" y="29" w="29" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="Run" imagePath="MegamanSprite.png" w="1420" h="3294">	
+		<sprite x="5" y="67" w="30" h="34" ox="5" oy="67" oW="97" oH="411"/>
+		<sprite x="50" y="67" w="20" h="34" ox="50" oy="67" oW="97" oH="411"/>
+		<sprite x="75" y="67" w="23" h="35" ox="75" oy="67" oW="97" oH="411"/>
+		<sprite x="105" y="68" w="32" h="34" ox="105" oy="68" oW="97" oH="411"/>
+		<sprite x="145" y="68" w="34" h="33" ox="145" oy="68" oW="97" oH="411"/>
+		<sprite x="190" y="68" w="26" h="33" ox="190" oy="68" oW="97" oH="411"/>
+		<sprite x="222" y="67" w="22" h="34" ox="222" oy="67" oW="97" oH="411"/>
+		<sprite x="248" y="67" w="25" h="35" ox="248" oy="67" oW="97" oH="411"/>
+		<sprite x="280" y="67" w="30" h="34" ox="280" oy="67" oW="97" oH="411"/>
+		<sprite x="318" y="68" w="34" h="33" ox="318" oy="68" oW="97" oH="411"/>
+	</Animation>
+	<Animation name="run_shoot" imagePath="Character.png" w="498" h="1053">
+		<sprite x="41" y="107" w="29" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="76" y="107" w="32" h="35" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="115" y="108" w="35" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="159" y="108" w="38" h="33" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="204" y="108" w="34" h="33" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="246" y="107" w="31" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="284" y="107" w="33" h="35" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="326" y="107" w="35" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="369" y="108" w="37" h="33" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="413" y="108" w="35" h="33" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="jump" imagePath="Character.png" w="498" h="1053">
+		<sprite x="6" y="148" w="24" h="37" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="37" y="148" w="15" h="41" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="56" y="146" w="18" h="46" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="80" y="150" w="23" h="41" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="108" y="150" w="27" h="42" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="139" y="151" w="24" h="38" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="166" y="153" w="30" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="jump_shoot" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="201" y="148" w="29" h="37" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="240" y="148" w="24" h="41" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="271" y="146" w="27" h="46" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="304" y="105" w="31" h="41" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="341" y="105" w="31" h="42" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="378" y="151" w="30" h="38" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="413" y="153" w="36" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="in_climb" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="5" y="197" w="25" h="42" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="33" y="196" w="27" h="43" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="64" y="196" w="28" h="42" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="out_climb" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="95" y="199" w="30" h="39" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="128" y="195" w="27" h="44" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="158" y="200" w="31" h="39" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="in_climb_shoot" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="201" y="196" w="32" h="43" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="240" y="196" w="32" h="42" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="out_climb_shoot" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="276" y="200" w="31" h="38" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="315" y="200" w="32" h="39" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="climb_ladder" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="7" y="267" w="21" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="36" y="261" w="18" h="49" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="60" y="266" w="20" h="40" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="84" y="266" w="20" h="40" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="111" y="261" w="18" h="49" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="climb_ladder_shoot" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="137" y="261" w="26" h="48" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="dash" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="4" y="335" w="28" h="31" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="34" y="341" w="38" h="26" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="76" y="335" w="37" h="31" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="115" y="341" w="48" h="26" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="destroyed" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="166" y="331" w="30" h="35" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="198" y="332" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="230" y="333" w="30" h="33" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="262" y="332" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="294" y="332" w="30" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="327" y="330" w="26" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="357" y="330" w="26" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="396" y="344" w="6" h="6" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="406" y="343" w="8" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="417" y="342" w="9" h="9" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="429" y="341" w="11" h="11" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="443" y="339" w="15" h="15" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="hurt" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="956" y="16" w="26" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="987" y="18" w="29" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1021" y="18" w="29" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1056" y="8" w="32" h="48" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1094" y="18" w="31" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1132" y="8" w="32" h="48" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1170" y="18" w="29" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1205" y="8" w="32" h="48" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1248" y="18" w="29" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1282" y="17" w="29" h="35" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="defense_hurt" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="1318" y="17" w="22" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1345" y="18" w="25" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1376" y="9" w="32" h="48" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="weak_sit" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="953" y="76" w="25" h="28" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="982" y="77" w="25" h="27" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1011" y="78" w="26" h="26" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="1041" y="77" w="25" h="27" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+</Animations>

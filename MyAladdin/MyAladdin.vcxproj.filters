@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="FrameWork">
+      <UniqueIdentifier>{7c492914-9bbb-4cdb-9ec2-acfd83a3fc44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{84979df1-1705-42ee-9c38-ec27a3ad6863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MapLoader">
+      <UniqueIdentifier>{8f22389e-fa10-47ba-8fb7-43cf384f945d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects">
+      <UniqueIdentifier>{3d576bdd-dc7c-4cfe-8203-3d15ec2a4824}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects\Static Object">
+      <UniqueIdentifier>{54986ecb-9a66-4ff1-a276-48527166fc6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects\Enemy">
+      <UniqueIdentifier>{e49a7153-dac5-46a9-ac66-1d36f6a74ae4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects\Item">
+      <UniqueIdentifier>{bf9b574a-d167-4df7-acd7-2d7b6a64be2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork\XMLResource">
+      <UniqueIdentifier>{e2f2a6ea-1c2a-4176-be1a-0c59b6e0caa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Sence">
+      <UniqueIdentifier>{65d0b850-a859-4d41-9e46-502a228bda42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects\Player">
+      <UniqueIdentifier>{56a9b04b-21d0-428e-a84a-d2b4fb6fc684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects\Bullet">
+      <UniqueIdentifier>{df330c49-a76d-4297-ba1c-b14807f633e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\UI">
+      <UniqueIdentifier>{dd14e776-5a66-4861-b243-c4d870b80aeb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SenceManager.cpp">
+      <Filter>Game\Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaySence.cpp">
+      <Filter>Game\Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="Aladdin.cpp">
+      <Filter>Game\Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoard.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Rope.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Game\MapLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Game\MapLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewPort.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticObject.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlparser.cpp">
+      <Filter>FrameWork\XMLResource</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlerror.cpp">
+      <Filter>FrameWork\XMLResource</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml.cpp">
+      <Filter>FrameWork\XMLResource</Filter>
+    </ClCompile>
+    <ClCompile Include="tinystr.cpp">
+      <Filter>FrameWork\XMLResource</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadTree.cpp">
+      <Filter>Game\MapLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="WRect.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CTreeObject.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="QNode.cpp">
+      <Filter>Game\MapLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Bar.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Stair.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Stick.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Guard1.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CamelBullet.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Guard2.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Trap.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Guard3.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectFactory.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Civilian1.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Civilian1Bullet.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Civilian2.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="AladdinAction.cpp">
+      <Filter>Game\Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Civilian3.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="AppleItem.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemObject.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Apple.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceFile.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceImage.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="GemItem.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="HeartItem.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="GenieItem.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="TeaPotItem.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="JarItem.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="BossScene.cpp">
+      <Filter>Game\Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="AbuItem.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="MapBoss.cpp">
+      <Filter>Game\MapLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="JafarBullet.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Jafar.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeBullet.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Peddler.cpp">
+      <Filter>Game\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Column.cpp">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBurning.cpp">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="AladdinGame.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="MapLevelComplete.cpp">
+      <Filter>Game\MapLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="DeadScene.cpp">
+      <Filter>Game\Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelCompleteScene.cpp">
+      <Filter>Game\Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectScene.cpp">
+      <Filter>Game\Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="MapDead.cpp">
+      <Filter>Game\MapLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapMenu.cpp">
+      <Filter>Game\MapLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Camel.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionObject.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionGround.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="DisPlay.cpp">
+      <Filter>Game\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthPoint.cpp">
+      <Filter>Game\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>Game\UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ISence.h">
+      <Filter>Game\Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="Aladdin.h">
+      <Filter>Game\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SenceManager.h">
+      <Filter>Game\Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaySence.h">
+      <Filter>Game\Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoard.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteManager.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Rope.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Game\MapLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Game\MapLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewPort.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticObject.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="tinystr.h">
+      <Filter>FrameWork\XMLResource</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml.h">
+      <Filter>FrameWork\XMLResource</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadTree.h">
+      <Filter>Game\MapLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="WRect.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CTreeObject.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="QNode.h">
+      <Filter>Game\MapLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Bar.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Stair.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Stick.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Guard1.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="CamelBullet.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Apple.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Guard2.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Trap.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Guard3.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Civilian1.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Civilian1Bullet.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Civilian2.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AladdinAction.h">
+      <Filter>Game\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Civilian3.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AppleItem.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemObject.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceFile.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceImage.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="GemItem.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="HeartItem.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="GenieItem.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="TeaPotItem.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="JarItem.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="BossScene.h">
+      <Filter>Game\Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="AbuItem.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="MapBoss.h">
+      <Filter>Game\MapLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="JafarBullet.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Jafar.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeBullet.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Peddler.h">
+      <Filter>Game\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Column.h">
+      <Filter>Game\Objects\Static Object</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBurning.h">
+      <Filter>Game\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AladdinGame.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MapLevelComplete.h">
+      <Filter>Game\MapLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="DeadScene.h">
+      <Filter>Game\Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelCompleteScene.h">
+      <Filter>Game\Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectScene.h">
+      <Filter>Game\Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="MapDead.h">
+      <Filter>Game\MapLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapMenu.h">
+      <Filter>Game\MapLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Camel.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionObject.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionGround.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="DisPlay.h">
+      <Filter>Game\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthPoint.h">
+      <Filter>Game\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>Game\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="AladdinResource.xml">
+      <Filter>FrameWork\XMLResource</Filter>
+    </Xml>
+    <Xml Include="EnemyResource.xml">
+      <Filter>FrameWork\XMLResource</Filter>
+    </Xml>
+    <Xml Include="ExplosingResource.xml">
+      <Filter>FrameWork\XMLResource</Filter>
+    </Xml>
+    <Xml Include="ItemResource.xml">
+      <Filter>FrameWork\XMLResource</Filter>
+    </Xml>
+    <Xml Include="JafarResource.xml">
+      <Filter>FrameWork\XMLResource</Filter>
+    </Xml>
+    <Xml Include="CharacterXML.xml">
+      <Filter>FrameWork\XMLResource</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>
