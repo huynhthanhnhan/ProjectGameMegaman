@@ -14,11 +14,11 @@
 #define WORLD_Y				7933
 #define WORLD_X				7933
 
-#define MAP_WIDTH			15866 //(4771*2 trong đó 4771 là chiều rộng thực sự của map, 2 là scale
-#define MAP_HEIGHT			8000 //(688* 2.5 trong đó 688 là chiều cao thực sự của map 2.5 là vector scale)
+#define MAP_WIDTH			7933 //(4771*2 trong đó 4771 là chiều rộng thực sự của map, 2 là scale
+#define MAP_HEIGHT			2039 //(688* 2.5 trong đó 688 là chiều cao thực sự của map 2.5 là vector scale)
 
 //Gia tốc trọng trường trong môi trường game
-#define ACCELERATION		15000
+#define ACCELERATION		0
 
 class Global
 {
@@ -43,20 +43,9 @@ public:
 
 	enum EState
 	{
-		Stand,
-		Stand1,
-		Stand2,
-		Stand3,
-		RecoveryStand,
-		Run,
-		Climb,
-		Climb_Drop,
-		Swing,
-		StopSwing,
-		LookUp,
-		LookDown,
-		SitDown,
-		StandUp,
+		
+		
+		
 		PushWall,
 		StopRun,
 
@@ -115,6 +104,24 @@ public:
 		Knife,
 
 		Appearance,
+		Stand,
+		Stand_shoot,
+		Run,
+		Run_shoot,
+		Climb,
+		Jump,
+		Jump_shoot,
+		In_climb,
+		Out_climb,
+		In_climb_shoot,
+		Out_climb_shoot,
+		Climb_ladder,
+		Climb_ladder_shoot,
+		Dash,
+		Destroyed,
+		Hurt,
+		Defense_hurt,
+		Weak_sit,
 	};
 
 	enum EControl

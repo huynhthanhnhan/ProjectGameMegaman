@@ -7,13 +7,11 @@ DisPlay::DisPlay()
 	this->_graphics = Graphics::Instance();
 	this->_apps = Application::Instance();
 	this->_hpLocation = Location3D(30, 100, 0);
-	this->_shop = Location3D(200, 150, 0);
 	this->_scoreLocation = Location3D(this->_apps->getWidth() - 100, 50, 0);
 	this->_lifeLocation = Location3D(70, this->_apps->getHeight() - 30, 0);
 	this->_numberOfAppleLocation = Location3D(this->_apps->getWidth() - 50, this->_apps->getHeight() - 30, 0);
 	this->_gemLocation = Location3D(this->_apps->getWidth() - 120, this->_apps->getHeight() - 30, 0);
 	this->_healthPoint = new HealthPoint();
-	this->_Shop = new Shop();
 	this->LoadResource();
 }
 
@@ -122,18 +120,7 @@ void DisPlay::render(int hp, int life, int numberOfApple, int gem, int score)
 	if (score != 0)
 		this->RenderText(score, _scoreLocation);
 
-	if (Aladdin::getInstance()->isGems() == true && timegem % 5 < 4)
-	{
-		this->_Shop->Render(Global::Right, Global::Gem, this->_shop, D3DXVECTOR2(2, 2.5));
-		this->_Shop->UpdateRender(Global::Gem);
-	}
 	timegem = (timegem + 1) % 5;
-
-	if (Aladdin::getInstance()->isA_Deal() == true && timeadeal % 5 < 4)
-	{
-		this->_Shop->Render(Global::Right, Global::A_Deal, this->_shop, D3DXVECTOR2(2, 2.5));
-		this->_Shop->UpdateRender(Global::A_Deal);
-	}
 	timeadeal = (timeadeal + 1) % 5;
 }
 

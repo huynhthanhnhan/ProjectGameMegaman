@@ -11,8 +11,8 @@ Apple::Apple(int x, int y, Global::EDirection direct)
 	this->_state = Global::Stand;
 	this->_width = 10;
 	this->_height = 10;
-	this->_ay = -ACCELERATION;
-	this->_angle = 0.26;//15 độ
+	this->_ay = 0;// -ACCELERATION;
+	this->_angle = 0;//0.26;//15 độ
 	this->_rotation = 0;
 	this->updateBody();
 	this->_distanceBullet = DISTANCE_APPLE;

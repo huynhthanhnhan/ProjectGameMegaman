@@ -8,7 +8,7 @@ SpriteManager::SpriteManager(const char * filePath, D3DCOLOR transcolor, vector<
 	this->mRotation = 0;
 	this->mRotationCenter = D3DXVECTOR2(mPosition.x, mPosition.y);
 	this->mTranslation = D3DXVECTOR2(0, 0);
-	this->mScale = D3DXVECTOR2(2, 2);
+	this->mScale = D3DXVECTOR2(1, 1);
 	this->mListRect = listSourceRect;
 	this->mIsFlipHorizontal = false;
 	this->mIsFlipVertical = false;
@@ -30,7 +30,7 @@ SpriteManager::SpriteManager(LPDIRECT3DTEXTURE9 texture, vector<Rect*> listSourc
 	this->mRotation = 0;
 	this->mRotationCenter = D3DXVECTOR2(mPosition.x, mPosition.y);
 	this->mTranslation = D3DXVECTOR2(0, 0);
-	this->mScale = D3DXVECTOR2(2, 2.5);
+	this->mScale = D3DXVECTOR2(1, 1);
 	this->mListRect = listSourceRect;
 	this->mIsFlipHorizontal = false;
 	this->mIsFlipVertical = false;

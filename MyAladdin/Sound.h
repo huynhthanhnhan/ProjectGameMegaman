@@ -10,10 +10,6 @@
 //BackGround
 //============================================================
 #define SOUND_BACKGOUND "Audio//PrinceAli.wav"
-#define SOUND_BACKGROUND_BOSS "Audio//BossTune.wav"
-#define SOUND_BACKGROUND_MENU "Audio//AWholeNewWorld.wav"
-#define SOUND_LEVELCOMPLETE "Audio//LevelComplete.wav"
-#define SOUND_BOXBELL "Audio//BoxingBell.wav"
 
 
 //============================================================

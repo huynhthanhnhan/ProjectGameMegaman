@@ -2,8 +2,6 @@
 #include<math.h>
 #include"Collision.h"
 #include"Ground.h"
-#include"Rope.h"
-#include"Column.h"
 #include"Camera.h"
 #include"Enemy.h"
 
@@ -140,7 +138,7 @@ void Aladdin::render()
 			this->_aladdinAction->Render(this->_direct, this->_state, position);
 		else
 		{
-			if (this->_state != Global::Climb && !this->IsJump() && this->_state != Global::LookUp && this->_state != Global::SitDown)
+			//if (this->_state != Global::Climb && !this->IsJump())
 				//Ko draw những vẫn tăng index lên để tránh trường hợp ne1m 2 quả táo cùng lúc
 			{
 
@@ -200,6 +198,18 @@ void Aladdin::render()
 		break;
 
 	}
+	case Global::Stand_shoot:
+	{
+		D3DXVECTOR2 appleLocation;	//Apple location to create a apple
+		float d = 20;
+
+		appleLocation.x = (_direct == Global::Right) ? this->_x + d : this->_x - d;
+
+		BulletManager::Instance()->addBullet(new Apple(appleLocation.x, appleLocation.y, this->_direct));
+		//this->_numberOfApple--;
+		break;
+
+	}
 	}
 }
 
@@ -211,14 +221,6 @@ void Aladdin::updateBody()
 	case Global::HitClimb:
 	case Global::ThrowClimb:
 	case Global::Climb:
-	case Global::Climb_Drop:this->_height = ALADDIN_HEIGHT_CLIMB; break;
-	case Global::HitSwing:
-	case Global::ThrowSwing:
-	case Global::StopSwing:
-	case Global::Swing: this->_height = ALADDIN_HEIGHT_SWING; break;
-	case Global::HitSitDown:
-	case Global::ThrowSitDown:
-	case Global::SitDown: this->_height = ALADDIN_HEIGHT_SITDOWN; break;
 	default: this->_height = ALADDIN_HEIGHT_NORMAL; break;
 	}
 	int width = 1;
@@ -243,26 +245,6 @@ Collision::ResultCollision Aladdin::processCollision(Object * obj)
 	WRect rectBody, rectBody2;
 	int vx, vy, vx2, vy2;
 	Bullet* bullet = (Bullet*)obj;
-	if (obj->getId() == Global::JAFARBULLET && (bullet->isCanAttack()))
-	{
-		JafarBullet* star = (JafarBullet*)obj;
-		rectBody = this->_rectBound;
-		vx = this->_vx;
-		vy = this->_vy;
-		rectBody2 = obj->getRectBound();
-		vx2 = obj->getVx();
-		vy2 = obj->getVy();
-		if (Collision::Instance()->AABB(rectBody, rectBody2) || (Collision::Instance()->sweptAABB(rectBody, vx, vy, rectBody2, vx2, vy2).flag))
-		{
-			if (abs(star->getX0() - this->_x) > 0 && this->getState() != Global::Hurting && !this->_isReset)
-			{
-				this->_x += (star->getDirect() == Global::Left) ? 35 : -35;
-			}
-			star->setFinish();
-			star->setState(Global::Hurting);
-		}
-		return Collision::ResultCollision();
-	}
 	if (this->_isReset)
 		return Collision::ResultCollision();
 	bool isAttack;
@@ -273,21 +255,6 @@ Collision::ResultCollision Aladdin::processCollision(Object * obj)
 		{
 			//WRect rectBody, rectBody2;
 			//int vx, vy, vx2, vy2;
-			if (obj->getId() == Global::SNAKEBULLET)
-			{
-				SnakeBullet* fire = (SnakeBullet*)obj;
-				rectBody = this->_rectBound;
-				vx = this->_vx;
-				vy = this->_vy;
-				rectBody2 = obj->getRectBound();
-				vx2 = obj->getVx();
-				vy2 = obj->getVy();
-				if (Collision::Instance()->AABB(rectBody, rectBody2) || (Collision::Instance()->sweptAABB(rectBody, vx, vy, rectBody2, vx2, vy2).flag))
-				{
-					this->Hurting();
-				}
-				return Collision::ResultCollision();
-			}
 			if (this->IsHit())
 			{	
 				rectBody = this->_rectSword;
@@ -393,16 +360,12 @@ void Aladdin::caculateSpeed(float deltaTime)
 	case Global::StopJump:
 	case Global::Hurting:
 	case Global::OnTrap:
-	case Global::HitStand:
-	case Global::HitStand2:
-	case Global::HitSitDown:
-	case Global::ThrowStand:
-	case Global::ThrowSitDown:
-	case Global::SitDown:
-	case Global::StandUp:
-	case Global::LookUp:
-	case Global::LookDown:
 	case Global::Stand:
+	{
+		this->_v0 = 0;
+		break;
+	}
+	case Global::Appearance:
 	{
 		this->_v0 = 0;
 		break;
@@ -418,31 +381,21 @@ void Aladdin::caculateSpeed(float deltaTime)
 		this->_v0 /= 3;
 		break;
 	}
-	case Global::JumpStand:
-	case Global::JumpRun:
-	case Global::HitJump:
-	case Global::ThrowJump:
-	case Global::JumpClimb:
-	{
-		this->_v0 *= 1.8;
-		angle = 1.1345;
-		if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT) || KeyBoard::Instance()->isKeyPress(DIK_LEFT))
-			canMoveX = true;
-		else
-			canMoveX = false;
+	//case Global::JumpClimb:
+	//{
+	//	this->_v0 *= 0;// 1.8;
+	//	angle = 1.1345;
+	//	if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT) || KeyBoard::Instance()->isKeyPress(DIK_LEFT))
+	//		canMoveX = true;
+	//	else
+	//		canMoveX = false;
 
-		ax = 0;
+	//	ax = 0;
 
-		if (this->_isGround)
-			canMoveY = false;
-		break;
-	}
-	case Global::ThrowFall:
-	case Global::HitFall:
-	{
-		int i = 0;
-	}
-	case Global::JumpSwing:
+	//	if (this->_isGround)
+	//		canMoveY = false;
+	//	break;
+	//}
 	case Global::Fall:
 	{
 		this->_v0 /= 2;
@@ -454,29 +407,9 @@ void Aladdin::caculateSpeed(float deltaTime)
 			canMoveX = false;
 		break;
 	}
-	case Global::JumpRotate:
-	{
-		this->_v0 *= 2.5;
-		angle = 1.1345;
-		if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT) || KeyBoard::Instance()->isKeyPress(DIK_LEFT))
-			canMoveX = true;
-		else
-			canMoveX = false;
-		if (this->_isGround)
-			canMoveY = false;
-		break;
-	}
-	case Global::HitClimb:
-	case Global::ThrowClimb:
-	{
-		ay = 0;
-		canMoveX = false;
-		canMoveY = false;
-		break;
-	}
 	case Global::Climb:
 	{
-		ay = 0;
+		/*ay = 0;
 		canMoveX = false;
 		this->_v0 /= 2;
 		angle = 1.571;
@@ -504,59 +437,34 @@ void Aladdin::caculateSpeed(float deltaTime)
 			canMoveY = false;
 		}
 
-		break;
+		break;*/
 	}
-	case Global::Climb_Drop:
+	case Global::Jump:
 	{
-		ay = this->_ay * 8;
-		canMoveX = false;
-		canMoveY = false;
-		int columnBottom = this->_aladdinAction->getColumn().bottom;
-		if (this->_y < columnBottom)
-			this->Fall();
-		break;
-	}
-	case Global::HitSwing:
-	case Global::ThrowSwing:
-	case Global::StopSwing:
-	{
-		canMoveX = false;
-		canMoveY = false;
-		ay = 0;
-		break;
-	}
-	case Global::Swing:
-	{
-		canMoveY = false;
-		this->_v0 /= 2;
-		ay = 0;
+		/*this->_v0 *= 2.5;
 		angle = 0;
-		int leftBar = this->_aladdinAction->getBar().left;
-		int rightBar = this->_aladdinAction->getBar().right;
-
-		if (KeyBoard::Instance()->isKeyPress(DIK_LEFT))
-		{
-			if (this->_x > leftBar)
-				this->_aladdinAction->setDirect(Global::Left);
-			else
-				this->Fall();
-		}
-		else if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT))
-		{
-			if (this->_x < rightBar)
-				this->_aladdinAction->setDirect(Global::Right);
-			else
-				this->Fall();
-
-		}
+		ay = 2.5;
+		if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT) || KeyBoard::Instance()->isKeyPress(DIK_LEFT))
+			canMoveX = true;
 		else
-		{
-			this->_aladdinAction->setDirect(Global::None);
-			this->StopSwing();
 			canMoveX = false;
-		}
+		if (this->_isGround)
+			canMoveY = false;
+		break;*/
+	}
+	case Global::Stand_shoot:
+	{
+		this->_v0 *= 2.5;
+		angle = 0;
+		if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT) || KeyBoard::Instance()->isKeyPress(DIK_LEFT))
+			canMoveX = true;
+		else
+			canMoveX = false;
+		if (this->_isGround)
+			canMoveY = false;
 		break;
 	}
+	case Global::ThrowSwing: break;
 	}
 
 	vx = (canMoveX) ? this->_v0*cos(angle) : 0;
@@ -564,7 +472,7 @@ void Aladdin::caculateSpeed(float deltaTime)
 
 	vx *= (directX == Global::Right) ? 1 : -1;
 	ax *= (directX == Global::Right) ? 1 : -1;
-	vy *= (directY == Global::Up) ? 1 : -1;
+	vy *= 1;
 
 	float vx_Immediately = vx + ax*(_timeAction - deltaTime);
 	float vy_Immediately = vy + ay*(_timeAction - deltaTime);
@@ -582,9 +490,9 @@ void Aladdin::Stand()
 	if (_state == Global::Stand)
 		return;
 
-	if (_state == Global::Run && this->_countRun >= 10/* && this->_isGround*/)
+	if (_state == Global::Run && this->_countRun >= 5 && this->_isGround)
 	{
-		this->StopRun();
+		this->Stand();
 		this->_countRun = 0;
 		return;
 	}
@@ -594,69 +502,45 @@ void Aladdin::Stand()
 	this->_state = Global::Stand;
 }
 
+void Aladdin::Appearance()
+{
+	if (_state == Global::Appearance)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_state = Global::Appearance;
+}
+
 void Aladdin::Running()
 {
 	//this->set(1, 0, 1, 0);
 	if (_state == Global::Run)
 		return;
+	if (_state == Global::Stand && this->_countRun >= 5 /*&& this->_isGround*/)
+	{
+		this->Stand();
+		this->_countRun = 0;
+		return;
+	}
 	this->_aladdinAction->Refresh();
 	this->_state = Global::Run;
-}
-
-void Aladdin::SitDown()
-{
-	//this->set(0, 0, 1, 0);
-	if (_state == Global::SitDown)
-		return;
-	this->_aladdinAction->Refresh();
-	this->_timeAction = 0;
-	this->_state = Global::SitDown;
-}
-
-void Aladdin::StandUp()
-{
-	//this->set(0, 0, 1, 0);
-	if (_state == Global::StandUp)
-		return;
-	this->_aladdinAction->Refresh();
-	this->_timeAction = 0;
-	this->_state = Global::StandUp;
-}
-
-void Aladdin::LookUp()
-{
-	//this->set(0, 0, 1, 0);
-	if (_state == Global::LookUp)
-		return;
-	this->_aladdinAction->Refresh();
-	this->_state = Global::LookUp;
-}
-
-void Aladdin::LookDown()
-{
-	//this->set(0, 0, 1, 0);
-	if (_state == Global::LookDown)
-		return;
-	this->_aladdinAction->Refresh();
-	this->_state = Global::LookDown;
 }
 #pragma endregion
 //===================================================
 //PushWall
 //===================================================
 #pragma region PushWall
-bool Aladdin::IsPushWall()
-{
-	return _state == Global::PushWall;
-}
+//bool Aladdin::IsPushWall()
+//{
+//	//return _state == Global::PushWall;
+//}
 
 void Aladdin::PushWall()
 {
 	//this->set(1, 0, 1, 0);
-	if (_state == Global::PushWall)
-		return;
-	this->_aladdinAction->Refresh();
-	this->_state = Global::PushWall;
+	//if (_state == Global::PushWall)
+	//	return;
+	//this->_aladdinAction->Refresh();
+	//this->_state = Global::PushWall;
 }
 #pragma endregion
 //===================================================
@@ -668,38 +552,17 @@ void Aladdin::Climb()
 	this->_timeAction = 0;
 	this->_state = Global::Climb;
 }
-void Aladdin::Climb_Drop()
-{
-	this->_timeAction = 0;
-	this->_state = Global::Climb_Drop;
-}
+
 #pragma endregion
 //===================================================
 //Swing
 //===================================================
 #pragma region Swing
-void Aladdin::Swing()
-{
-	//this->set(1, 0, 0, 0);
-	if (_state == Global::Swing)
-		return;
-	this->_aladdinAction->Refresh();
-	this->_state = Global::Swing;
-}
-
-void Aladdin::StopSwing()
-{
-	//this->set(0, 0, 0, 0);
-	if (_state == Global::StopSwing)
-		return;
-	this->_aladdinAction->Refresh();
-	this->_state = Global::StopSwing;
-}
 void Aladdin::Hurting()
 {
 	if (this->_state == Global::Hurting)
 		return;
-	if (this->_state == Global::Climb || this->_state == Global::Climb_Drop || this->_state == Global::JumpClimb || this->_state == Global::JumpRotate || this->_state == Global::JumpRun || this->_state == Global::JumpStand || this->_state == Global::JumpSwing || this->_state == Global::ThrowJump)
+	if (this->_state == Global::Climb || this->_state == Global::JumpClimb || this->_state == Global::JumpRotate || this->_state == Global::JumpRun || this->_state == Global::JumpStand || this->_state == Global::JumpSwing || this->_state == Global::ThrowJump)
 	{
 		this->_hp--;
 		this->_sound = Sound::Instance();
@@ -880,66 +743,9 @@ void Aladdin::ThrowRun()
 #pragma region Jump
 bool Aladdin::IsJump()
 {
-	return (_state == Global::JumpRun ||
-		_state == Global::JumpStand ||
-		_state == Global::JumpClimb ||
-		_state == Global::JumpSwing||
-		_state == Global::JumpRotate);
+	return (_state == Global::Jump);
 }
 
-void Aladdin::JumpStand()
-{
-	//this->set(1.8, 0, 1, 1.1345);
-	if (_state == Global::JumpStand)
-		return;
-	this->_aladdinAction->Refresh();
-
-	this->_isGround = false;
-	this->_timeAction = 0;
-	this->_state = Global::JumpStand;
-}
-
-void Aladdin::JumpRun()
-{
-	if (_state == Global::JumpRun)
-		return;
-	this->_aladdinAction->Refresh();
-
-	this->_isGround = false;
-	this->_timeAction = 0;
-	this->_state = Global::JumpRun;
-}
-
-void Aladdin::JumpClimb()
-{
-	//this->set(1, 0, 1, 1.1345);
-	if (_state == Global::JumpClimb)
-		return;
-	this->_aladdinAction->Refresh();
-
-	this->_timeAction = 0;
-	this->_state = Global::JumpClimb;
-}
-
-void Aladdin::JumpSwing()
-{
-	//this->set(1, 0, 1, 1.1345);
-	if (_state == Global::JumpSwing)
-		return;
-	this->_aladdinAction->Refresh();
-
-	this->_timeAction = 0;
-	this->_state = Global::JumpSwing;
-}
-
-void Aladdin::JumpRotate()
-{
-	if (this->_state == Global::JumpRotate)
-		return;
-	this->_aladdinAction->Refresh();
-	this->_timeAction = 0;
-	this->_state = Global::JumpRotate;
-}
 
 void Aladdin::Fall()
 {
@@ -953,29 +759,173 @@ void Aladdin::Fall()
 void Aladdin::StopJump()
 {
 	this->_timeAction = 0;
-	this->_state = Global::StopJump;
+	this->_state = Global::Stand;
 }
 void Aladdin::Revival()
 {
-	if (this->_state == Global::Revival)
+	if (this->_state == Global::Appearance)
 		return;
 	this->_timeAction = 0;
 	this->_countRun = 0;
 	if (!this->_startPosition_)
 	{
-		this->setState(Global::Stand);
+		this->setState(Global::Appearance);
 		this->setReset();
 		this->_x = this->_startPosition.x;
 		this->_y = this->_startPosition.y;
 		this->updateBody();
 		return;
 	}
-	this->_state = Global::Revival;
+	this->_state = Global::Appearance;
 	this->setReset(false);
 	this->_x = this->_startPosition.x;
 	this->_y = this->_startPosition.y;
 	this->updateBody();
 }
+
+void Aladdin::Stand_shoot()
+{
+	if (_state == Global::Stand_shoot)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Stand_shoot;
+}
+void Aladdin::Run()
+{
+	if (_state == Global::Run)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Run;
+}
+void Aladdin::Run_shoot()
+{
+	if (_state == Global::Run_shoot)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Run_shoot;
+}
+void Aladdin::Jump()
+{
+	if (_state == Global::Jump)
+		return;
+	if (_state == Global::Stand && this->_countRun >= 5)
+	{
+		this->Stand();
+		this->_countRun = 0;
+		return;
+	}
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Jump;
+}
+void Aladdin::Jump_shoot()
+{
+	if (_state == Global::Jump_shoot)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Jump_shoot;
+}
+void Aladdin::In_climb()
+{
+	if (_state == Global::In_climb)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::In_climb;
+}
+void Aladdin::Out_climb()
+{
+	if (_state == Global::Out_climb)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Out_climb;
+}
+void Aladdin::In_climb_shoot()
+{
+	if (_state == Global::In_climb_shoot)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::In_climb_shoot;
+}
+void Aladdin::Out_climb_shoot()
+{
+	if (_state == Global::Out_climb_shoot)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Out_climb_shoot;
+}
+void Aladdin::Climb_ladder()
+{
+	if (_state == Global::Climb_ladder)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Climb_ladder;
+}
+void Aladdin::Climb_ladder_shoot()
+{
+	if (_state == Global::Climb_ladder_shoot)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Climb_ladder_shoot;
+}
+void Aladdin::Dash()
+{
+	if (_state == Global::Dash)
+		return;
+	if (_state == Global::Stand && this->_countRun >= 4)
+	{
+		this->Stand();
+		this->_countRun = 0;
+		return;
+	}
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Dash;
+}
+void Aladdin::Destroyed()
+{
+	if (_state == Global::Destroyed)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Destroyed;
+}
+void Aladdin::Hurt()
+{
+	if (_state == Global::Hurt)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Hurt;
+}
+void Aladdin::Defense_hurt()
+{
+	if (_state == Global::Defense_hurt)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Defense_hurt;
+}
+void Aladdin::Weak_sit()
+{
+	if (_state == Global::Weak_sit)
+		return;
+	this->_aladdinAction->Refresh();
+	this->_timeAction = 0;
+	this->_state = Global::Weak_sit;
+}
+
+
+
 
 #pragma endregion
 //===================================================

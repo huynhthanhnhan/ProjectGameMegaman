@@ -5,7 +5,6 @@
 #include"Application.h"
 #include"SpriteManager.h"
 #include"HealthPoint.h"
-#include"Shop.h"
 #include"Aladdin.h"
 typedef D3DXVECTOR3 Location3D;
 class DisPlay
@@ -29,7 +28,6 @@ private:
 	//===================================================
 	SpriteManager*			_sprite;
 	HealthPoint*			_healthPoint;
-	Shop*					_Shop;
 	//===================================================
 	//Rectangle
 	//===================================================

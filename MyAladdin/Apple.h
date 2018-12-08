@@ -3,7 +3,7 @@
 #define __APPLE_H__
 #include"Bullet.h"
 #include"Sound.h"
-#define DISTANCE_APPLE 45
+#define DISTANCE_APPLE 5
 
 //Diễn tả chuyển động của quả táo
 class Apple :public Bullet

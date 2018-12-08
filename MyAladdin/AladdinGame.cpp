@@ -1,8 +1,5 @@
 #include "AladdinGame.h"
 #include"PlaySence.h"
-#include "BossScene.h"
-#include "LevelCompleteScene.h"
-#include "SelectScene.h"
 
 AladdinGame*	AladdinGame::mInstance;
 

@@ -1,12 +1,9 @@
 ﻿#include "PlaySence.h"
 #include"BulletManager.h"
-#include "LevelCompleteScene.h"
-#include "DeadScene.h"
 
 PlaySence::PlaySence()
 {
 	this->_application = Application::Instance();
-	this->_pastLevel1 = false;
 	this->LoadContent();
 }
 
@@ -52,7 +49,7 @@ void PlaySence::LoadContent()
 {
 
 	this->_aladdin = Aladdin::getInstance();
-	this->_aladdin->Init(200, 9000, 10, 8, 3);
+	this->_aladdin->Init(200, 7150, 10, 8, 3);
 	this->_camera = Camera::Instance();
 
 	float wndWidth = _application->getWidth();
@@ -67,29 +64,14 @@ void PlaySence::LoadContent()
 	this->_quadtree->buildTree("Map\\map.txt");
 	this->_display = DisPlay::Instance();
 	this->_camera->update(this->_aladdin);
-	this->_sound = Sound::Instance();
-	this->_sound->playBackGround(SOUND_BACKGOUND, 100, true);
+	//this->_sound = Sound::Instance();
+	//this->_sound->playBackGround(SOUND_BACKGOUND, 100, true);
 }
 
 void PlaySence::Update(float delta)
 {
 	this->_camera->update(this->_aladdin);
 
-	if (!this->_pastLevel1)
-	{
-		WRect finishRect(9542, 9254, 8, 240);
-		if (Collision::Instance()->sweptAABB(_aladdin->getRectBound(), _aladdin->getVx(), _aladdin->getVy(), finishRect, 0, 0).flag)
-		{
-			this->_sound->stop();
-			this->_pastLevel1 = true;
-			Aladdin* _aladdin;
-			_aladdin = Aladdin::getInstance();
-			_aladdin->setVictory1();
-			LevelCompleteScene* scene = new LevelCompleteScene();
-			SenceManager::Instance()->ReplaceSence(scene);
-			return;
-		}
-	}
 	this->_listObject = this->_quadtree->getListObject(this->_camera->getBound());
 
 	StaticObject::Instance()->clear();
@@ -121,16 +103,6 @@ void PlaySence::Update(float delta)
 			//this->_aladdin->processCollision(obj);
 			break;
 		}
-		case Global::TEAPOTITEM:
-		{
-			TeaPotItem* tea = (TeaPotItem*)obj;
-			if (tea->isReach())
-			{
-				for each (auto obj in this->_listObject)
-					tea->clearEnemy(obj);
-				tea->setReach(false);
-			}
-		}
 		}
 		obj->update(delta);
 	}
@@ -155,10 +127,10 @@ void PlaySence::Update(float delta)
 	if (_aladdin->getLife() < 0)
 	{
 		this->_sound->stop();
-		DeadScene* scene = new DeadScene();
-		SenceManager::Instance()->ReplaceSence(scene);
+
 		return;
 	}
+	//_aladdin->getXY();
 }
 
 void PlaySence::ProcessInput()
@@ -174,24 +146,24 @@ void PlaySence::ProcessInput()
 	if (key->isKeyPress(DIK_LEFT))
 	{
 		controller = Global::LeftControl;
-		if (this->_aladdin->IsPushWall() && this->_aladdin->getDirect() == Global::Right)
-		{
-			this->_aladdin->setDirect(Global::Left);
-			this->_aladdin->Running();
-			return;
-		}
+		//if (this->_aladdin->IsPushWall() && this->_aladdin->getDirect() == Global::Right)
+		//{
+		//	this->_aladdin->setDirect(Global::Left);
+		//	this->_aladdin->Running();
+		//	return;
+		//}
 		this->_aladdin->setDirect(Global::Left);
 	}
 
 	if (key->isKeyPress(DIK_RIGHT))
 	{
 		controller = Global::RightControl;
-		if (this->_aladdin->IsPushWall() && this->_aladdin->getDirect() == Global::Left)
-		{
-			this->_aladdin->setDirect(Global::Right);
-			this->_aladdin->Running();
-			return;
-		}
+		//if (this->_aladdin->IsPushWall() && this->_aladdin->getDirect() == Global::Left)
+		//{
+		//	this->_aladdin->setDirect(Global::Right);
+		//	this->_aladdin->Running();
+		//	return;
+		//}
 		this->_aladdin->setDirect(Global::Right);
 	}
 
@@ -202,25 +174,25 @@ void PlaySence::ProcessInput()
 	//	controller = Global::DownControl;
 
 
-	/*if (key->isKeyDown(DIK_S))
+	if (key->isKeyPress(DIK_S))
 		controller = Global::HitControl;
-*/
-	/*if (key->isKeyDown(DIK_A))
+
+	if (key->isKeyPress(DIK_A))
 	{
 		controller = Global::ThrowControl;
-	}*/
+	}
 
 	if (key->isKeyDown(DIK_D))
 		controller = Global::JumpControl;
 
-	if (KeyBoard::Instance()->isKeyPress(DIK_SPACE))
-	{
-		this->_aladdin->setCurrentLocation(5200, 9300);
-		this->_aladdin->updateBody();
-		this->_aladdin->Stand();
-		this->_aladdin->refreshTime();
-		return;
-	}
+	//if (KeyBoard::Instance()->isKeyPress(DIK_SPACE))
+	//{
+	//	this->_aladdin->setCurrentLocation(5200, 9300);
+	//	this->_aladdin->updateBody();
+	//	this->_aladdin->Stand();
+	//	this->_aladdin->refreshTime();
+	//	return;
+	//}
 
 	Global::EState nextState = statemanager->getNewState(currentState, controller);
 	this->AladdinTakeAction(nextState);
@@ -243,14 +215,9 @@ void PlaySence::AladdinTakeAction(Global::EState currentState)
 	switch (currentState)
 	{
 	case Global::Stand: this->_aladdin->Stand(); break;
+	case Global::Appearance: this->_aladdin->Appearance(); break;
 	case Global::Run: this->_aladdin->Running(); break;
 	case Global::Climb: this->_aladdin->Climb(); break;
-	case Global::Climb_Drop: this->_aladdin->Climb_Drop(); break;
-	case Global::Swing: this->_aladdin->Swing();  break;
-	case Global::LookUp: this->_aladdin->LookUp(); break;
-	case Global::LookDown: this->_aladdin->LookDown(); break;
-	case Global::SitDown: this->_aladdin->SitDown(); break;
-	case Global::StandUp: this->_aladdin->StandUp(); break;
 
 	case Global::HitStand: this->_aladdin->HitStand(); break;
 	case Global::HitStand2: this->_aladdin->HitStand2(); break;
@@ -269,12 +236,23 @@ void PlaySence::AladdinTakeAction(Global::EState currentState)
 	case Global::ThrowFall: this->_aladdin->ThrowFall(); break;
 	case Global::ThrowRun: this->_aladdin->ThrowRun(); break;
 
-	case Global::JumpStand: this->_aladdin->JumpStand(); break;
-	case Global::JumpRun: this->_aladdin->JumpRun(); break;
-	case Global::JumpClimb: this->_aladdin->JumpClimb(); break;
-	case Global::JumpSwing: this->_aladdin->JumpSwing(); break;
 	case Global::StopJump: this->_aladdin->StopJump(); break;
-	case Global::JumpRotate: this->_aladdin->JumpRotate(); break;
+	case Global::Stand_shoot: this->_aladdin->Stand_shoot(); break;
+	case Global::Run_shoot: this->_aladdin->Run_shoot(); break;
+	case Global::Jump: this->_aladdin->Jump(); break;
+	case Global::Jump_shoot: this->_aladdin->Jump_shoot(); break;
+	case Global::In_climb: this->_aladdin->In_climb(); break;
+	case Global::Out_climb: this->_aladdin->Out_climb(); break;
+	case Global::In_climb_shoot: this->_aladdin->In_climb_shoot(); break;
+	case Global::Out_climb_shoot: this->_aladdin->Out_climb_shoot(); break;
+	case Global::Climb_ladder: this->_aladdin->Climb_ladder(); break;
+	case Global::Climb_ladder_shoot: this->_aladdin->Climb_ladder_shoot(); break;
+	case Global::Dash: this->_aladdin->Dash(); break;
+	case Global::Destroyed: this->_aladdin->Destroyed(); break;
+	case Global::Hurt: this->_aladdin->Hurt(); break;
+	case Global::Defense_hurt: this->_aladdin->Defense_hurt(); break;
+	case Global::Weak_sit: this->_aladdin->Weak_sit(); break;
+
 	}
 }
 

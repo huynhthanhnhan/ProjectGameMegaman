@@ -72,9 +72,6 @@
     <ClCompile Include="Rect.cpp">
       <Filter>FrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="Rope.cpp">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClCompile>
     <ClCompile Include="StateManager.cpp">
       <Filter>FrameWork</Filter>
     </ClCompile>
@@ -120,9 +117,6 @@
     <ClCompile Include="Ground.cpp">
       <Filter>Game\Objects\Static Object</Filter>
     </ClCompile>
-    <ClCompile Include="Bar.cpp">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClCompile>
     <ClCompile Include="Wall.cpp">
       <Filter>Game\Objects\Static Object</Filter>
     </ClCompile>
@@ -135,31 +129,10 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Game\Objects\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Stick.cpp">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Guard1.cpp">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="CamelBullet.cpp">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="BulletManager.cpp">
       <Filter>Game\Objects\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Guard2.cpp">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Trap.cpp">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Guard3.cpp">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Sword.cpp">
       <Filter>Game\Objects\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="ObjectFactory.cpp">
@@ -168,20 +141,8 @@
     <ClCompile Include="Civilian1.cpp">
       <Filter>Game\Objects\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Civilian1Bullet.cpp">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Civilian2.cpp">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="AladdinAction.cpp">
       <Filter>Game\Objects\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Civilian3.cpp">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="AppleItem.cpp">
-      <Filter>Game\Objects\Item</Filter>
     </ClCompile>
     <ClCompile Include="ItemObject.cpp">
       <Filter>Game\Objects\Item</Filter>
@@ -198,53 +159,11 @@
     <ClCompile Include="ResourceImage.cpp">
       <Filter>FrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="GemItem.cpp">
-      <Filter>Game\Objects\Item</Filter>
-    </ClCompile>
     <ClCompile Include="HeartItem.cpp">
-      <Filter>Game\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="GenieItem.cpp">
-      <Filter>Game\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="TeaPotItem.cpp">
       <Filter>Game\Objects\Item</Filter>
     </ClCompile>
     <ClCompile Include="Sound.cpp">
       <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="JarItem.cpp">
-      <Filter>Game\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="BossScene.cpp">
-      <Filter>Game\Sence</Filter>
-    </ClCompile>
-    <ClCompile Include="AbuItem.cpp">
-      <Filter>Game\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="MapBoss.cpp">
-      <Filter>Game\MapLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="JafarBullet.cpp">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Jafar.cpp">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Platform.cpp">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClCompile>
-    <ClCompile Include="SnakeBullet.cpp">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Peddler.cpp">
-      <Filter>Game\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Column.cpp">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClCompile>
-    <ClCompile Include="FireBurning.cpp">
-      <Filter>Game\Objects\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>FrameWork</Filter>
@@ -252,40 +171,13 @@
     <ClCompile Include="AladdinGame.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="MapLevelComplete.cpp">
-      <Filter>Game\MapLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="DeadScene.cpp">
-      <Filter>Game\Sence</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelCompleteScene.cpp">
-      <Filter>Game\Sence</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectScene.cpp">
-      <Filter>Game\Sence</Filter>
-    </ClCompile>
-    <ClCompile Include="MapDead.cpp">
-      <Filter>Game\MapLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapMenu.cpp">
-      <Filter>Game\MapLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="Camel.cpp">
-      <Filter>Game\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="ActionObject.cpp">
-      <Filter>Game\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="ActionGround.cpp">
       <Filter>Game\Objects</Filter>
     </ClCompile>
     <ClCompile Include="DisPlay.cpp">
       <Filter>Game\UI</Filter>
     </ClCompile>
     <ClCompile Include="HealthPoint.cpp">
-      <Filter>Game\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Shop.cpp">
       <Filter>Game\UI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -326,9 +218,6 @@
     <ClInclude Include="Rect.h">
       <Filter>FrameWork</Filter>
     </ClInclude>
-    <ClInclude Include="Rope.h">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClInclude>
     <ClInclude Include="StateManager.h">
       <Filter>FrameWork</Filter>
     </ClInclude>
@@ -368,9 +257,6 @@
     <ClInclude Include="Ground.h">
       <Filter>Game\Objects\Static Object</Filter>
     </ClInclude>
-    <ClInclude Include="Bar.h">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClInclude>
     <ClInclude Include="Wall.h">
       <Filter>Game\Objects\Static Object</Filter>
     </ClInclude>
@@ -383,15 +269,6 @@
     <ClInclude Include="Enemy.h">
       <Filter>Game\Objects\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Stick.h">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Guard1.h">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="CamelBullet.h">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="BulletManager.h">
       <Filter>Game\Objects\Bullet</Filter>
     </ClInclude>
@@ -401,38 +278,14 @@
     <ClInclude Include="Apple.h">
       <Filter>Game\Objects\Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="Guard2.h">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Trap.h">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Guard3.h">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Sword.h">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="ObjectFactory.h">
       <Filter>Game\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Civilian1.h">
       <Filter>Game\Objects\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Civilian1Bullet.h">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Civilian2.h">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="AladdinAction.h">
       <Filter>Game\Objects\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Civilian3.h">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="AppleItem.h">
-      <Filter>Game\Objects\Item</Filter>
     </ClInclude>
     <ClInclude Include="ItemObject.h">
       <Filter>Game\Objects\Item</Filter>
@@ -443,94 +296,25 @@
     <ClInclude Include="ResourceImage.h">
       <Filter>FrameWork</Filter>
     </ClInclude>
-    <ClInclude Include="GemItem.h">
-      <Filter>Game\Objects\Item</Filter>
-    </ClInclude>
     <ClInclude Include="HeartItem.h">
-      <Filter>Game\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="GenieItem.h">
-      <Filter>Game\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="TeaPotItem.h">
       <Filter>Game\Objects\Item</Filter>
     </ClInclude>
     <ClInclude Include="Sound.h">
       <Filter>FrameWork</Filter>
     </ClInclude>
-    <ClInclude Include="JarItem.h">
-      <Filter>Game\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="BossScene.h">
-      <Filter>Game\Sence</Filter>
-    </ClInclude>
-    <ClInclude Include="AbuItem.h">
-      <Filter>Game\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="MapBoss.h">
-      <Filter>Game\MapLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="JafarBullet.h">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Jafar.h">
-      <Filter>Game\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Platform.h">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="SnakeBullet.h">
-      <Filter>Game\Objects\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Peddler.h">
-      <Filter>Game\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Column.h">
-      <Filter>Game\Objects\Static Object</Filter>
-    </ClInclude>
-    <ClInclude Include="FireBurning.h">
-      <Filter>Game\Objects\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="AladdinGame.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="MapLevelComplete.h">
-      <Filter>Game\MapLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="DeadScene.h">
-      <Filter>Game\Sence</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelCompleteScene.h">
-      <Filter>Game\Sence</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectScene.h">
-      <Filter>Game\Sence</Filter>
-    </ClInclude>
-    <ClInclude Include="MapDead.h">
-      <Filter>Game\MapLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapMenu.h">
-      <Filter>Game\MapLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="Camel.h">
-      <Filter>Game\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="ActionObject.h">
-      <Filter>Game\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="ActionGround.h">
       <Filter>Game\Objects</Filter>
     </ClInclude>
     <ClInclude Include="DisPlay.h">
       <Filter>Game\UI</Filter>
     </ClInclude>
     <ClInclude Include="HealthPoint.h">
-      <Filter>Game\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Shop.h">
       <Filter>Game\UI</Filter>
     </ClInclude>
   </ItemGroup>

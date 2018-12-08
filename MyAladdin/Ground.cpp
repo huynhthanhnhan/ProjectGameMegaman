@@ -34,7 +34,7 @@ Collision::ResultCollision Ground::processCollision(Object * obj)
 	float vy2 = this->getVy();
 	Collision::ResultCollision result = Collision::Instance()->sweptAABB(rect1, vx1, vy1, rect2, vx2, vy2);
 	//Chỉ xét hướng va chạm từ trên xuống
-	if (result.normaly == -1 || result.normaly == 0)
+	if (result.normaly == -1 /*|| result.normaly == 0&&result.normalx==0*/)
 		result.flag = false;
 
 	if (!result.flag)

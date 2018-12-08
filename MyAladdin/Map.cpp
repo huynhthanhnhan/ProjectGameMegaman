@@ -5,7 +5,7 @@
 Map::Map()
 {
 	//position in World
-	this->_position = D3DXVECTOR3(0, WORLD_Y/2, 0);
+	this->_position = D3DXVECTOR3(0, WORLD_Y, 0);
 	LoadResource();
 }
 
@@ -26,8 +26,8 @@ void Map::SetCamera(Camera * camera)
 
 void Map::LoadResource()
 {
-	this->_rectMap1.update(0, 0, 7933, 4078, D3DXVECTOR3(0, 0, 0));
-	this->_rectMap2.update(0, 0, 7933, 4078, D3DXVECTOR3(0, 0, 0));
+	this->_rectMap1.update(0, 0, 7933, 2039, D3DXVECTOR3(0, 0, 0));
+	this->_rectMap2.update(2039, 0, 7933, 4078, D3DXVECTOR3(0, 0, 0));
 	this->_mapTexturePart1 = ResourceImage::Instance()->getMapTexture()[0];
 	this->_mapTexturePart2 = ResourceImage::Instance()->getMapTexture()[1];
 	this->_transform._scale = D3DXVECTOR2(1, 1);

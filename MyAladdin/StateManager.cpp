@@ -33,151 +33,96 @@ Global::EState StateManager::getNewState(Global::EState oldState, Global::EContr
 		newState = this->getStand(controller);
 		break;
 	}
-	case Global::SitDown:
-	{
-		newState = this->getSitDown(controller);
-		break;
-	}
-	case Global::StandUp:
-	{
-		newState = this->getStandUp(controller);
-		break;
-	}
-	case Global::Climb:
-	{
-		newState = this->getClimb(controller);
-		break;
-	}
-	case Global::Climb_Drop:
-	{
-		newState = this->getClimb_Drop(controller);
-		break;
-	}
-	case Global::Swing:
-	{
-		newState = this->getSwing(controller);
-		break;
-	}
-	case Global::StopSwing:
-	{
-		newState = this->getStopSwing(controller);
-		break;
-	}
-	case Global::LookUp:
-	{
-		newState = this->getLookUp(controller);
-		break;
-	}
-	case Global::LookDown:
-	{
-		newState = this->getLookDown(controller);
-		break;
-	}
-	case Global::StopRun:
-	{
-		newState = this->getReadyStopRun(controller);
-		break;
-	}
-	case Global::JumpStand:
-	{
-		newState = this->getJumpStand(controller);
-		break;
-	}
-	case Global::JumpRun:
-	{
-		newState = this->getJumpRun(controller);
-		break;
-	}
-	case Global::JumpClimb:
-	{
-		newState = this->getJumpClimb(controller);
-		break;
-	}
-	case Global::JumpSwing:
-	{
-		newState = this->getJumpSwing(controller);
-		break;
-	}
-	case Global::StopJump:
-	{
-		newState = this->getStopJump(controller);
-		break;
-	}
-	case Global::HitStand:
-	{
-		newState = this->getHitStand(controller);
-		break;
-	}
-	case Global::HitStand2:
-	{
-		newState = this->getHitStand2(controller);
-		break;
-	}
-	case Global::HitRun:
-	{
-		newState = this->getHitRun(controller);
-		break;
-	}
-	case Global::HitSitDown:
-	{
-		newState = this->getHitSitDown(controller);
-		break;
-	}
-	case Global::HitJump:
-	{
-		newState = this->getHitJump(controller);
-		break;
-	}
-	case Global::HitClimb:
-	{
-		newState = this->getHitClimb(controller);
-		break;
-	}
-	case Global::HitSwing:
-	{
-		newState = this->getHitSwing(controller);
-		break;
-	}
+	//case Global::Climb:
+	//{
+	//	newState = this->getClimb(controller);
+	//	break;
+	//}
 	case Global::ThrowStand:
 	{
 		newState = this->getThrowStand(controller);
 		break;
 	}
-	case Global::ThrowSitDown:
+	//case Global::Fall:
+	//{
+	//	newState = this->getFalling(controller);
+	//	break;
+	//}
+	case Global::Appearance:
 	{
-		newState = this->getThrowSitDown(controller);
+		newState = this->getAppearance(controller);
 		break;
 	}
-	case Global::ThrowJump:
+	case Global::Stand_shoot:
 	{
-		newState = this->getThrowJump(controller);
+		newState = this->getStand_shoot(controller);
 		break;
 	}
-	case Global::ThrowClimb:
+	case Global::Run_shoot:
 	{
-		newState = this->getThrowClimb(controller);
+		newState = this->getRun_shoot(controller);
 		break;
 	}
-	case Global::ThrowSwing:
+	case Global::Jump_shoot:
 	{
-		newState = this->getThrowSwing(controller);
+		newState = this->getJump_shoot(controller);
 		break;
 	}
+	case Global::In_climb:
 	{
-	case Global::ThrowRun:
-		newState = this->getThrowRun(controller);
+		newState = this->getIn_climb(controller);
 		break;
 	}
-	case Global::Fall:
+	case Global::Out_climb:
 	{
-		newState = this->getFalling(controller);
+		newState = this->getOut_climb(controller);
 		break;
 	}
-	case Global::PushWall:
+	case Global::In_climb_shoot:
 	{
-		newState = this->getPushWall(controller);
+		newState = this->getIn_climb_shoot(controller);
 		break;
 	}
+	case Global::Out_climb_shoot:
+	{
+		newState = this->getOut_climb_shoot(controller);
+		break;
+	}
+	case Global::Climb_ladder:
+	{
+		newState = this->getClimb_ladder(controller);
+		break;
+	}
+	case Global::Climb_ladder_shoot:
+	{
+		newState = this->getClimb_ladder_shoot(controller);
+		break;
+	}
+	case Global::Destroyed:
+	{
+		newState = this->getDestroyed(controller);
+		break;
+	}
+	case Global::Defense_hurt:
+	{
+		newState = this->getDefense_hurt(controller);
+		break;
+	}
+	case Global::Weak_sit:
+	{
+		newState = this->getWeak_sit(controller);
+		break;
+	}
+	case Global::Dash:
+	{
+		newState = this->getDash(controller);
+		break;
+	}
+	//case Global::PushWall:
+	//{
+	//	newState = this->getPushWall(controller);
+	//	break;
+	//}
 	default: newState = oldState; break;
 	}
 	return newState;
@@ -197,9 +142,9 @@ Global::EState StateManager::getRun(Global::EControl controller)
 	case Global::RightControl: break;
 	case Global::DownControl: break;
 	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowRun; break;
-	case Global::HitControl: newState = Global::HitRun; break;
-	case Global::JumpControl: newState = Global::JumpRun; break;
+	case Global::ThrowControl: newState = Global::Run_shoot; break;
+	case Global::HitControl: newState = Global::Dash; break;
+	case Global::JumpControl: newState = Global::Jump; break;
 	}
 	return newState;
 }
@@ -213,426 +158,392 @@ Global::EState StateManager::getStand(Global::EControl controller)
 	case Global::NoneControl: break;
 	case Global::LeftControl: newState = Global::Run; break;
 	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl:	newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowStand; break;
-	case Global::HitControl: newState = Global::HitStand; break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
+	case Global::ThrowControl: newState = Global::Stand_shoot; break;
+	case Global::HitControl: newState = Global::Dash; break;
+	case Global::JumpControl: newState = Global::Jump; break;
 	}
 	return newState;
 }
 
-Global::EState StateManager::getSitDown(Global::EControl controller)
+Global::EState StateManager::getJump(Global::EControl controller)
 {
-	Global::EState newState = Global::SitDown;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: newState = Global::Run; break;
-	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: break;
-	case Global::UpControl:	newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowSitDown; break;
-	case Global::HitControl: newState = Global::HitSitDown; break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
+	Global::EState newState = Global::Jump;
 
-Global::EState StateManager::getStandUp(Global::EControl controller)
-{
-	Global::EState newState = Global::StandUp;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: newState = Global::Run; break;
-	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl:	newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowStand; break;
-	case Global::HitControl: newState = Global::HitStand; break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getClimb(Global::EControl controller)
-{
-	Global::EState newState = Global::Climb;
 	switch (controller)
 	{
 	case Global::NoneControl: break;
 	case Global::LeftControl: break;
 	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl:	break;
-	case Global::ThrowControl: newState = Global::ThrowClimb; break;
-	case Global::HitControl: newState = Global::HitClimb; break;
-	case Global::JumpControl: newState = Global::JumpClimb; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getClimb_Drop(Global::EControl controller)
-{
-	Global::EState newState = Global::Climb_Drop;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl:	break;
-	case Global::ThrowControl: break;
-	case Global::HitControl: break;
+	case Global::ThrowControl: newState = Global::Jump_shoot; break;
+	case Global::HitControl: newState = Global::Dash; break;
 	case Global::JumpControl: break;
 	}
 	return newState;
 }
-
-Global::EState StateManager::getSwing(Global::EControl controller)
-{
-	Global::EState newState = Global::Swing;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl:	break;
-	case Global::ThrowControl: newState = Global::ThrowSwing; break;
-	case Global::HitControl: newState = Global::HitSwing; break;
-	case Global::JumpControl: newState = Global::JumpSwing; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getStopSwing(Global::EControl controller)
-{
-	Global::EState newState = Global::StopSwing;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: newState = Global::Swing; break;
-	case Global::RightControl: newState = Global::Swing; break;
-	case Global::DownControl: break;
-	case Global::UpControl:	break;
-	case Global::ThrowControl: newState = Global::ThrowSwing; break;
-	case Global::HitControl: newState = Global::HitSwing; break;
-	case Global::JumpControl: newState = Global::JumpSwing; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getLookUp(Global::EControl controller)
-{
-	Global::EState newState = Global::LookUp;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl:newState = Global::SitDown; break;
-	case Global::UpControl:	break;
-	case Global::ThrowControl: newState = Global::ThrowStand; break;
-	case Global::HitControl: newState = Global::HitStand2; break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getLookDown(Global::EControl controller)
-{
-	Global::EState newState = Global::LookDown;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: newState = Global::Run; break;
-	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl:	newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowStand; break;
-	case Global::HitControl: newState = Global::HitStand; break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getReadyStopRun(Global::EControl controller)
-{
-	Global::EState newState = Global::StopRun;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: newState = Global::Run; break;
-	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl:	newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowStand; break;
-	case Global::HitControl: newState = Global::HitStand; break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getJumpStand(Global::EControl controller)
-{
-	Global::EState newState = Global::JumpStand;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowJump; break;
-	case Global::HitControl: newState = Global::HitJump; break;
-	case Global::JumpControl:break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getJumpRun(Global::EControl controller)
-{
-	Global::EState newState = Global::JumpRun;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowJump; break;
-	case Global::HitControl: newState = Global::HitJump; break;
-	case Global::JumpControl:break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getJumpClimb(Global::EControl controller)
-{
-	Global::EState newState = Global::JumpClimb;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowJump; break;
-	case Global::HitControl: newState = Global::HitJump; break;
-	case Global::JumpControl:break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getJumpSwing(Global::EControl controller)
-{
-	Global::EState newState = Global::JumpSwing;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowFall; break;
-	case Global::HitControl: newState = Global::HitFall; break;
-	case Global::JumpControl:break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getFalling(Global::EControl controller)
-{
-	Global::EState newState = Global::Fall;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowFall; break;
-	case Global::HitControl: newState = Global::HitFall; break;
-	case Global::JumpControl:break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getStopJump(Global::EControl controller)
-{
-	Global::EState newState = Global::StopJump;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: newState = Global::Run; break;
-	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl: newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowStand; break;
-	case Global::HitControl: newState = Global::HitStand; break;
-	case Global::JumpControl:newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getHitStand(Global::EControl controller)
-{
-	Global::EState newState = Global::HitStand;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: newState = Global::Run; break;
-	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl: newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowStand; break;
-	case Global::HitControl: break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getHitStand2(Global::EControl controller)
-{
-	Global::EState newState = Global::HitStand2;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: newState = Global::Run; break;
-	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowStand; break;
-	case Global::HitControl: break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getHitRun(Global::EControl controller)
-{
-	Global::EState newState = Global::HitRun;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl: newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowRun; break;
-	case Global::HitControl: break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getHitSitDown(Global::EControl controller)
-{
-	Global::EState newState = Global::HitSitDown;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: newState = Global::LookUp; break;
-	case Global::ThrowControl: newState = Global::ThrowSitDown;  break;
-	case Global::HitControl: break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getHitJump(Global::EControl controller)
-{
-	Global::EState newState = Global::HitJump;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowJump; break;
-	case Global::HitControl: break;
-	case Global::JumpControl: break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getHitClimb(Global::EControl controller)
-{
-	Global::EState newState = Global::HitClimb;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowClimb; break;
-	case Global::HitControl: break;
-	case Global::JumpControl: newState = Global::JumpClimb; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getHitSwing(Global::EControl controller)
-{
-	Global::EState newState = Global::HitSwing;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: newState = Global::ThrowSwing; break;
-	case Global::HitControl: break;
-	case Global::JumpControl: newState = Global::JumpSwing; break;
-	}
-	return newState;
-}
+//
+//Global::EState StateManager::getClimb(Global::EControl controller)
+//{
+//	Global::EState newState = Global::Climb;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl:	break;
+//	case Global::ThrowControl: newState = Global::ThrowClimb; break;
+//	case Global::HitControl: newState = Global::HitClimb; break;
+//	case Global::JumpControl: newState = Global::JumpClimb; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getReadyStopRun(Global::EControl controller)
+//{
+//	Global::EState newState = Global::StopRun;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: newState = Global::Run; break;
+//	case Global::RightControl: newState = Global::Run; break;
+//	case Global::ThrowControl: newState = Global::ThrowStand; break;
+//	case Global::HitControl: newState = Global::HitStand; break;
+//	case Global::JumpControl: newState = Global::JumpStand; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getJumpStand(Global::EControl controller)
+//{
+//	Global::EState newState = Global::JumpStand;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::Jump_shoot; break;
+//	case Global::HitControl: newState = Global::Jump_shoot; break;
+//	case Global::JumpControl:break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getJumpRun(Global::EControl controller)
+//{
+//	Global::EState newState = Global::JumpRun;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowJump; break;
+//	case Global::HitControl: newState = Global::HitJump; break;
+//	case Global::JumpControl:break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getJumpClimb(Global::EControl controller)
+//{
+//	Global::EState newState = Global::JumpClimb;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowJump; break;
+//	case Global::HitControl: newState = Global::HitJump; break;
+//	case Global::JumpControl:break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getJumpSwing(Global::EControl controller)
+//{
+//	Global::EState newState = Global::JumpSwing;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::Throw-; break;
+//	case Global::HitControl: newState = Global::HitFall; break;
+//	case Global::JumpControl:break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getFalling(Global::EControl controller)
+//{
+//	Global::EState newState = Global::Fall;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowFall; break;
+//	case Global::HitControl: newState = Global::HitFall; break;
+//	case Global::JumpControl:break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getStopJump(Global::EControl controller)
+//{
+//	Global::EState newState = Global::StopJump;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: newState = Global::Run; break;
+//	case Global::RightControl: newState = Global::Run; break;
+//	case Global::ThrowControl: newState = Global::ThrowStand; break;
+//	case Global::HitControl: newState = Global::HitStand; break;
+//	case Global::JumpControl:newState = Global::JumpStand; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getHitStand(Global::EControl controller)
+//{
+//	Global::EState newState = Global::HitStand;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: newState = Global::Run; break;
+//	case Global::RightControl: newState = Global::Run; break;
+//	case Global::ThrowControl: newState = Global::ThrowStand; break;
+//	case Global::HitControl: break;
+//	case Global::JumpControl: newState = Global::JumpStand; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getHitStand2(Global::EControl controller)
+//{
+//	Global::EState newState = Global::HitStand2;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: newState = Global::Run; break;
+//	case Global::RightControl: newState = Global::Run; break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowStand; break;
+//	case Global::HitControl: break;
+//	case Global::JumpControl: newState = Global::JumpStand; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getHitRun(Global::EControl controller)
+//{
+//	Global::EState newState = Global::HitRun;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowRun; break;
+//	case Global::HitControl: break;
+//	case Global::JumpControl: newState = Global::JumpStand; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getHitSitDown(Global::EControl controller)
+//{
+//	Global::EState newState = Global::HitSitDown;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowSitDown;  break;
+//	case Global::HitControl: break;
+//	case Global::JumpControl: newState = Global::JumpStand; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getHitJump(Global::EControl controller)
+//{
+//	Global::EState newState = Global::HitJump;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowJump; break;
+//	case Global::HitControl: break;
+//	case Global::JumpControl: break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getHitClimb(Global::EControl controller)
+//{
+//	Global::EState newState = Global::HitClimb;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowClimb; break;
+//	case Global::HitControl: break;
+//	case Global::JumpControl: newState = Global::JumpClimb; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getHitSwing(Global::EControl controller)
+//{
+//	Global::EState newState = Global::HitSwing;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: newState = Global::ThrowSwing; break;
+//	case Global::HitControl: break;
+//	case Global::JumpControl: newState = Global::JumpSwing; break;
+//	}
+//	return newState;
+//}
 
 Global::EState StateManager::getThrowStand(Global::EControl controller)
 {
-	Global::EState newState = Global::ThrowStand;
+	Global::EState newState = Global::Stand_shoot;
 	switch (controller)
 	{
 	case Global::NoneControl: break;
 	case Global::LeftControl: newState = Global::Run; break;
 	case Global::RightControl: newState = Global::Run; break;
-	case Global::DownControl: newState = Global::SitDown; break;
 	case Global::UpControl: break;
 	case Global::ThrowControl: break;
-	case Global::HitControl: newState = Global::HitStand; break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
+	case Global::HitControl: newState = Global::Dash; break;
+	case Global::JumpControl: newState = Global::Jump; break;
 	}
 	return newState;
 }
+//
+//Global::EState StateManager::getThrowRun(Global::EControl controller)
+//{
+//	Global::EState newState = Global::ThrowRun;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: newState = Global::Stand; break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::ThrowControl: break;
+//	case Global::HitControl: newState = Global::HitRun; break;
+//	case Global::JumpControl: newState = Global::JumpRun; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getThrowSitDown(Global::EControl controller)
+//{
+//	Global::EState newState = Global::ThrowSitDown;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: break;
+//	case Global::HitControl: newState = Global::HitSitDown; break;
+//	case Global::JumpControl: newState = Global::JumpStand;  break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getThrowJump(Global::EControl controller)
+//{
+//	Global::EState newState = Global::ThrowJump;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: break;
+//	case Global::HitControl: newState = Global::HitJump; break;
+//	case Global::JumpControl: break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getThrowClimb(Global::EControl controller)
+//{
+//	Global::EState newState = Global::ThrowClimb;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: break;
+//	case Global::HitControl: newState = Global::HitClimb; break;
+//	case Global::JumpControl: newState = Global::JumpClimb; break;
+//	}
+//	return newState;
+//}
+//
+//Global::EState StateManager::getThrowSwing(Global::EControl controller)
+//{
+//	Global::EState newState = Global::ThrowSwing;
+//	switch (controller)
+//	{
+//	case Global::NoneControl: break;
+//	case Global::LeftControl: break;
+//	case Global::RightControl: break;
+//	case Global::DownControl: break;
+//	case Global::UpControl: break;
+//	case Global::ThrowControl: break;
+//	case Global::HitControl: newState = Global::HitSwing; break;
+//	case Global::JumpControl: newState = Global::JumpSwing; break;
+//	}
+//	return newState;
+//}
+//Global::EState StateManager::getPushWall(Global::EControl controller)
+//{
+//	//Global::EState newState = Global::PushWall;
+//	//switch (controller)
+//	//{
+//	//case Global::NoneControl: newState = Global::Stand; break;
+//	//case Global::LeftControl: break;
+//	//case Global::RightControl: break;
+//	//case Global::DownControl: break;
+//	//case Global::UpControl: break;
+//	//case Global::ThrowControl: break;
+//	//case Global::HitControl: break;
+//	//case Global::JumpControl: newState = Global::JumpStand; break;
+//	//}
+//	//return newState;
+//}
 
-Global::EState StateManager::getThrowRun(Global::EControl controller)
+Global::EState StateManager::getAppearance(Global::EControl controller)
 {
-	Global::EState newState = Global::ThrowRun;
-	switch (controller)
-	{
-	case Global::NoneControl: newState = Global::Stand; break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: newState = Global::SitDown; break;
-	case Global::UpControl: newState = Global::LookUp; break;
-	case Global::ThrowControl: break;
-	case Global::HitControl: newState = Global::HitRun; break;
-	case Global::JumpControl: newState = Global::JumpRun; break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getThrowSitDown(Global::EControl controller)
-{
-	Global::EState newState = Global::ThrowSitDown;
+	Global::EState newState = Global::Appearance;
 	switch (controller)
 	{
 	case Global::NoneControl: break;
@@ -641,32 +552,126 @@ Global::EState StateManager::getThrowSitDown(Global::EControl controller)
 	case Global::DownControl: break;
 	case Global::UpControl: break;
 	case Global::ThrowControl: break;
-	case Global::HitControl: newState = Global::HitSitDown; break;
-	case Global::JumpControl: newState = Global::JumpStand;  break;
-	}
-	return newState;
-}
-
-Global::EState StateManager::getThrowJump(Global::EControl controller)
-{
-	Global::EState newState = Global::ThrowJump;
-	switch (controller)
-	{
-	case Global::NoneControl: break;
-	case Global::LeftControl: break;
-	case Global::RightControl: break;
-	case Global::DownControl: break;
-	case Global::UpControl: break;
-	case Global::ThrowControl: break;
-	case Global::HitControl: newState = Global::HitJump; break;
+	case Global::HitControl: break;
 	case Global::JumpControl: break;
 	}
 	return newState;
 }
-
-Global::EState StateManager::getThrowClimb(Global::EControl controller)
+Global::EState StateManager::getStand_shoot(Global::EControl controller)
 {
-	Global::EState newState = Global::ThrowClimb;
+	Global::EState newState = Global::Stand_shoot;
+	switch (controller)
+	{
+	case Global::NoneControl:newState = Global::Stand; break;
+	case Global::LeftControl: newState = Global::Run_shoot; break;
+	case Global::RightControl:newState = Global::Run_shoot; break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl: break;
+	case Global::HitControl: newState = Global::Dash; break;
+	case Global::JumpControl:newState = Global::Jump_shoot; break;
+	}
+	return newState;
+}
+Global::EState StateManager::getRun_shoot(Global::EControl controller)
+{
+	Global::EState newState = Global::Run_shoot;
+	switch (controller)
+	{
+	case Global::NoneControl:newState = Global::Stand; break;
+	case Global::LeftControl: break;
+	case Global::RightControl: break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl: break;
+	case Global::HitControl:newState = Global::Dash; break;
+	case Global::JumpControl:newState = Global::Jump_shoot; break;
+	}
+	return newState;
+}
+Global::EState StateManager::getJump_shoot(Global::EControl controller)
+{
+	Global::EState newState = Global::Jump_shoot;
+	switch (controller)
+	{
+	case Global::NoneControl: newState = Global::Stand; break;
+	case Global::LeftControl:  break;
+	case Global::RightControl: break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl: break;
+	case Global::HitControl: newState = Global::Dash; break;
+	case Global::JumpControl: break;
+	}
+	return newState;
+}
+Global::EState StateManager::getIn_climb(Global::EControl controller)
+{
+	Global::EState newState = Global::In_climb;
+	switch (controller)
+	{
+	case Global::NoneControl: newState = Global::Stand; break;
+	case Global::LeftControl:newState = Global::Run; break;
+	case Global::RightControl:newState = Global::Run; break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl:newState = Global::In_climb_shoot; break;
+	case Global::HitControl:newState = Global::Dash; break;
+	case Global::JumpControl:newState = Global::Jump; break;
+	}
+	return newState;
+}
+Global::EState StateManager::getOut_climb(Global::EControl controller)
+{
+	Global::EState newState = Global::ThrowSwing;
+	switch (controller)
+	{
+	case Global::NoneControl:newState = Global::Stand; break;
+	case Global::LeftControl: newState = Global::Run; break;
+	case Global::RightControl:newState = Global::Run; break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl:newState = Global::Out_climb_shoot; break;
+	case Global::HitControl:newState = Global::Dash; break;
+	case Global::JumpControl:newState = Global::Jump; break;
+	}
+	return newState;
+}
+Global::EState StateManager::getIn_climb_shoot(Global::EControl controller)
+{
+	Global::EState newState = Global::In_climb_shoot;
+	switch (controller)
+	{
+	case Global::NoneControl:newState = Global::Stand; break;
+	case Global::LeftControl:newState = Global::Out_climb; break;
+	case Global::RightControl:newState = Global::Out_climb; break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl: break;
+	case Global::HitControl:newState = Global::Dash; break;
+	case Global::JumpControl:newState = Global::Jump; break;
+	}
+	return newState;
+}
+Global::EState StateManager::getOut_climb_shoot(Global::EControl controller)
+{
+	Global::EState newState = Global::Out_climb_shoot;
+	switch (controller)
+	{
+	case Global::NoneControl:newState = Global::Stand; break;
+	case Global::LeftControl:newState = Global::Run; break;
+	case Global::RightControl:newState = Global::Run; break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl: break;
+	case Global::HitControl:newState = Global::Dash; break;
+	case Global::JumpControl:newState = Global::Jump; break;
+	}
+	return newState;
+}
+Global::EState StateManager::getClimb_ladder(Global::EControl controller)
+{
+	Global::EState newState = Global::Climb_ladder;
 	switch (controller)
 	{
 	case Global::NoneControl: break;
@@ -675,13 +680,12 @@ Global::EState StateManager::getThrowClimb(Global::EControl controller)
 	case Global::DownControl: break;
 	case Global::UpControl: break;
 	case Global::ThrowControl: break;
-	case Global::HitControl: newState = Global::HitClimb; break;
-	case Global::JumpControl: newState = Global::JumpClimb; break;
+	case Global::HitControl: break;
+	case Global::JumpControl: break;
 	}
 	return newState;
 }
-
-Global::EState StateManager::getThrowSwing(Global::EControl controller)
+Global::EState StateManager::getClimb_ladder_shoot(Global::EControl controller)
 {
 	Global::EState newState = Global::ThrowSwing;
 	switch (controller)
@@ -692,24 +696,72 @@ Global::EState StateManager::getThrowSwing(Global::EControl controller)
 	case Global::DownControl: break;
 	case Global::UpControl: break;
 	case Global::ThrowControl: break;
-	case Global::HitControl: newState = Global::HitSwing; break;
-	case Global::JumpControl: newState = Global::JumpSwing; break;
+	case Global::HitControl: break;
+	case Global::JumpControl: break;
 	}
 	return newState;
 }
-Global::EState StateManager::getPushWall(Global::EControl controller)
+Global::EState StateManager::getDestroyed(Global::EControl controller)
 {
-	Global::EState newState = Global::PushWall;
+	Global::EState newState = Global::ThrowSwing;
 	switch (controller)
 	{
-	case Global::NoneControl: newState = Global::Stand; break;
+	case Global::NoneControl: break;
 	case Global::LeftControl: break;
 	case Global::RightControl: break;
 	case Global::DownControl: break;
 	case Global::UpControl: break;
 	case Global::ThrowControl: break;
 	case Global::HitControl: break;
-	case Global::JumpControl: newState = Global::JumpStand; break;
+	case Global::JumpControl: break;
+	}
+	return newState;
+}
+Global::EState StateManager::getDefense_hurt(Global::EControl controller)
+{
+	Global::EState newState = Global::Defense_hurt;
+	switch (controller)
+	{
+	case Global::NoneControl: break;
+	case Global::LeftControl: break;
+	case Global::RightControl: break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl: break;
+	case Global::HitControl: break;
+	case Global::JumpControl: break;
+	}
+	return newState;
+}
+Global::EState StateManager::getWeak_sit(Global::EControl controller)
+{
+	Global::EState newState = Global::ThrowSwing;
+	switch (controller)
+	{
+	case Global::NoneControl: break;
+	case Global::LeftControl: break;
+	case Global::RightControl: break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl: break;
+	case Global::HitControl: break;
+	case Global::JumpControl: break;
+	}
+	return newState;
+}
+Global::EState StateManager::getDash(Global::EControl controller)
+{
+	Global::EState newState = Global::Dash;
+	switch (controller)
+	{
+	case Global::NoneControl:newState = Global::Stand; break;
+	case Global::LeftControl:newState = Global::Run; break;
+	case Global::RightControl:newState = Global::Run; break;
+	case Global::DownControl: break;
+	case Global::UpControl: break;
+	case Global::ThrowControl:newState = Global::Run_shoot; break;
+	case Global::HitControl: break;
+	case Global::JumpControl:newState = Global::Jump; break;
 	}
 	return newState;
 }

@@ -18,14 +18,7 @@ public:
 private:
 	Global::EState						getRun(Global::EControl controller);
 	Global::EState						getStand(Global::EControl controller);
-	Global::EState						getSitDown(Global::EControl controller);
-	Global::EState						getStandUp(Global::EControl controller);
 	Global::EState						getClimb(Global::EControl controller);
-	Global::EState						getClimb_Drop(Global::EControl controller);
-	Global::EState						getSwing(Global::EControl controller);
-	Global::EState						getStopSwing(Global::EControl controller);
-	Global::EState						getLookUp(Global::EControl controller);
-	Global::EState						getLookDown(Global::EControl controller);
 	Global::EState						getReadyStopRun(Global::EControl controller);
 	Global::EState						getJumpStand(Global::EControl controller);
 	Global::EState						getJumpRun(Global::EControl controller);
@@ -47,6 +40,22 @@ private:
 	Global::EState						getThrowSwing(Global::EControl controller);
 	Global::EState						getThrowRun(Global::EControl controller);
 	Global::EState						getPushWall(Global::EControl controller);
+
+	Global::EState                       getAppearance(Global::EControl controler);
+	Global::EState						getStand_shoot(Global::EControl controler);
+	Global::EState						getRun_shoot(Global::EControl controler);
+	Global::EState						getJump(Global::EControl controler);
+	Global::EState						getJump_shoot(Global::EControl controler);
+	Global::EState						getIn_climb(Global::EControl controler);
+	Global::EState						getOut_climb(Global::EControl controler);
+	Global::EState						getIn_climb_shoot(Global::EControl controler);
+	Global::EState						getOut_climb_shoot(Global::EControl controler);
+	Global::EState						getClimb_ladder(Global::EControl controler);
+	Global::EState						getClimb_ladder_shoot(Global::EControl controler);
+	Global::EState						getDestroyed(Global::EControl controler);
+	Global::EState						getDefense_hurt(Global::EControl controler);
+	Global::EState						getWeak_sit(Global::EControl controler);
+	Global::EState						getDash(Global::EControl controler);
 };
 
 #endif __STATEMANAGER_H__

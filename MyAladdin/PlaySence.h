@@ -15,7 +15,6 @@
 #include "DisPlay.h"
 #include "AladdinGame.h"
 #include "SenceManager.h"
-#include "BossScene.h"
 class PlaySence :public ISence
 {
 private:

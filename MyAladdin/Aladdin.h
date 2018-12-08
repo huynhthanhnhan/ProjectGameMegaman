@@ -13,8 +13,6 @@
 #include"AladdinAction.h"
 #include"Sound.h"
 #include"BulletManager.h"
-#include "JafarBullet.h"
-#include"SnakeBullet.h"
 #include<math.h>
 #pragma endregion
 
@@ -75,17 +73,9 @@ public:
 #pragma region Action Method
 	void						Stand();
 	void						Running();
-	void						SitDown();
-	void						StandUp();
-	void						LookUp();
-	void						LookDown();
 	bool						IsPushWall();
 	void						PushWall();
 	void						Climb();
-	void						Climb_Drop();
-
-	void						Swing();
-	void						StopSwing();
 
 	void						Hurting();
 
@@ -121,6 +111,26 @@ public:
 	
 	void						StopJump();
 	void						StopRun();
+
+	void						Appearance();
+	void Stand_shoot();
+	void Run();
+	void Run_shoot();
+	void Jump();
+	void Jump_shoot();
+	void In_climb();
+	void Out_climb();
+	void In_climb_shoot();
+	void Out_climb_shoot();
+	void Climb_ladder();
+	void Climb_ladder_shoot();
+	void Dash();
+	void Destroyed();
+	void Hurt();
+	void Defense_hurt();
+	void Weak_sit();
+
+
 #pragma endregion
 	//====================================================
 	//get action
@@ -149,6 +159,11 @@ public:
 	int							getNumberOfGem();
 	int							getScore();
 	int							getLife();
+
+	void getXY() {
+		cout << this->_x
+			<< this->_y;
+	}
 private:
 	void						loadResource();
 	void						caculateSpeed(float deltaTime);

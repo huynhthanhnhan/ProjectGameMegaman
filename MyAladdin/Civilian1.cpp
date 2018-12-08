@@ -41,8 +41,6 @@ void Civilian1::update(float deltaTime)
 		this->takeAction(Global::Attack);
 	else if(this->_isFinishAction)
 		this->takeAction(Global::NoneAction);
-	if (this->_state == Global::Attack && this->GetCurrentFrame(_state) == 7)
-		BulletManager::Instance()->addBullet(new Civilian1Bullet(this->_x + this->_width + 30, this->_y - this->_height - 50, Global::Right));
 }
 
 void Civilian1::DetermineDirection(Global::EState state, Global::EDirection direct)
