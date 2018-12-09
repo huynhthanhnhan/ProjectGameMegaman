@@ -35,6 +35,10 @@ private:
 	float						_deltaTime;
 	//Đếm số bước chạy của nhân vật
 	int							_countRun;
+
+	int _countDash;
+	
+	int _countJump;
 	//Hình chữ nhật dành để xét va chạm với cầu thang, đất, dây...
 	WRect						_rectBound2;
 	//hình chữ nhật dành riêng để xét va chạm với thanh bar giúp game mượt hơn khi nhảy lên thanh bar
@@ -55,6 +59,7 @@ private:
 	bool						_isVictory2;
 	bool						_isGameOver;
 public:
+	bool bDash;
 	//=====================================================
 	//Init
 	//=====================================================
@@ -129,7 +134,7 @@ public:
 	void Hurt();
 	void Defense_hurt();
 	void Weak_sit();
-
+	void Dash_shoot();
 
 #pragma endregion
 	//====================================================

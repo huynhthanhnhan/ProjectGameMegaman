@@ -18,7 +18,7 @@
 #define MAP_HEIGHT			2039 //(688* 2.5 trong đó 688 là chiều cao thực sự của map 2.5 là vector scale)
 
 //Gia tốc trọng trường trong môi trường game
-#define ACCELERATION		0
+#define ACCELERATION		8000
 
 class Global
 {
@@ -118,6 +118,7 @@ public:
 		Climb_ladder,
 		Climb_ladder_shoot,
 		Dash,
+		Dash_shoot,
 		Destroyed,
 		Hurt,
 		Defense_hurt,

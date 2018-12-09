@@ -83,12 +83,37 @@ Collision::ResultCollision StaticObject::processCollision(Object * obj)
 	if (result.flag)
 	{
 		listLocation.push_back(result.intersectionPoint);
-		if (resultG.flag && obj->getId() == Global::ALADDIN)
+		if (obj->getId() == Global::ALADDIN)
 		{
 			Aladdin* aladdin = (Aladdin*)obj;
 			aladdin->In_climb();
 		}
+		listLocation.push_back(result.intersectionPoint);
 	}
+	//=====================================================
+
+	for each (auto location in listLocation)
+	{
+		int dx = abs(location.x - obj->getX());
+		int dy = abs(location.y - obj->getY());
+		if (dx < dxMin)
+		{
+			x = location.x;
+			dxMin = dx;
+		}
+
+		if (location.y > y)
+			y = location.y;
+	}
+
+	if (x != -1)
+	{
+		result.intersectionPoint.x = x;
+		result.intersectionPoint.y = y;
+		result.flag = true;
+	}
+	else
+		result.flag = false;
 
 	return result;
 }
@@ -120,7 +145,7 @@ Collision::ResultCollision StaticObject::groundCollision(Object * obj)
 				dyMin = dy;
 			}
 
-			actionObject->setGround(true);
+			
 
 			if (obj->getId() == Global::ALADDIN)
 			{
@@ -129,9 +154,14 @@ Collision::ResultCollision StaticObject::groundCollision(Object * obj)
 				if (aladdin->IsJump() && (KeyBoard::Instance()->isKeyPress(DIK_LEFT) || KeyBoard::Instance()->isKeyPress(DIK_RIGHT)))
 				{
 					aladdin->setState(Global::Run);
-					aladdin->getAladdinAction()->SetCurrentFrame(Global::Run, 7);
+					aladdin->getAladdinAction()->SetCurrentFrame(Global::Run, 6);
+					
 				}
+				if (!aladdin->isGround())
+					aladdin->Stand();
 			}
+
+			actionObject->setGround(true);
 		}
 	}
 
@@ -155,12 +185,22 @@ Collision::ResultCollision StaticObject::stairCollision(Object * obj)
 Collision::ResultCollision StaticObject::wallCollision(Object * obj)
 {
 	Collision::ResultCollision result;
+	ActionObject* actionObject = (ActionObject*)obj;
 
 	for each (auto wall in this->_listWall)
 	{
 		result = wall->processCollision(obj);
 		if (result.flag)
+		{
+			if (obj->getId() == Global::ALADDIN)
+			{
+				Aladdin* aladdin = (Aladdin*)actionObject;
+				aladdin->refreshTime();
+				aladdin->setState(Global::In_climb);
+				aladdin->getAladdinAction()->SetCurrentFrame(Global::In_climb, 2);
+			}
 			return result;
+		}
 	}
 	return result;
 }

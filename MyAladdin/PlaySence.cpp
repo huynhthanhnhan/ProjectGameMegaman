@@ -176,6 +176,8 @@ void PlaySence::ProcessInput()
 
 	if (key->isKeyPress(DIK_S))
 		controller = Global::HitControl;
+	else
+		Aladdin::getInstance()->bDash = true;
 
 	if (key->isKeyPress(DIK_A))
 	{
@@ -219,22 +221,6 @@ void PlaySence::AladdinTakeAction(Global::EState currentState)
 	case Global::Run: this->_aladdin->Running(); break;
 	case Global::Climb: this->_aladdin->Climb(); break;
 
-	case Global::HitStand: this->_aladdin->HitStand(); break;
-	case Global::HitStand2: this->_aladdin->HitStand2(); break;
-	case Global::HitRun: this->_aladdin->HitRun(); break;
-	case Global::HitSitDown: this->_aladdin->HitSitDown(); break;
-	case Global::HitJump: this->_aladdin->HitJump(); break;
-	case Global::HitClimb: this->_aladdin->HitClimb(); break;
-	case Global::HitSwing: this->_aladdin->HitSwing(); break;
-	case Global::HitFall: this->_aladdin->HitFall(); break;
-
-	case Global::ThrowStand: this->_aladdin->ThrowStand(); break;
-	case Global::ThrowSitDown: this->_aladdin->ThrowSitDown(); break;
-	case Global::ThrowJump: this->_aladdin->ThrowJump(); break;
-	case Global::ThrowClimb: this->_aladdin->ThrowClimb(); break;
-	case Global::ThrowSwing: this->_aladdin->ThrowSwing(); break;
-	case Global::ThrowFall: this->_aladdin->ThrowFall(); break;
-	case Global::ThrowRun: this->_aladdin->ThrowRun(); break;
 
 	case Global::StopJump: this->_aladdin->StopJump(); break;
 	case Global::Stand_shoot: this->_aladdin->Stand_shoot(); break;
@@ -248,6 +234,7 @@ void PlaySence::AladdinTakeAction(Global::EState currentState)
 	case Global::Climb_ladder: this->_aladdin->Climb_ladder(); break;
 	case Global::Climb_ladder_shoot: this->_aladdin->Climb_ladder_shoot(); break;
 	case Global::Dash: this->_aladdin->Dash(); break;
+	case Global::Dash_shoot: this->_aladdin->Dash_shoot(); break;
 	case Global::Destroyed: this->_aladdin->Destroyed(); break;
 	case Global::Hurt: this->_aladdin->Hurt(); break;
 	case Global::Defense_hurt: this->_aladdin->Defense_hurt(); break;

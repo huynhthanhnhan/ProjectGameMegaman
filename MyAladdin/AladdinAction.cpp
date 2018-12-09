@@ -21,13 +21,13 @@ void AladdinAction::Render(Global::EDirection direct, Global::EState state, D3DX
 	Aladdin* aladdin = Aladdin::getInstance();
 	switch (state)
 	{
-	case Global::Climb:
+	/*case Global::Climb:
 	{
 		position.y -= aladdin->getHeight() / 2;
 		Animation::Render(direct, state, position, scale, translation, rotation, rotationCenter);
 		this->UpdateRender(state);
 		break;
-	}
+	}*/
 	default:
 	{
 		Animation::Render(direct, state, position, scale, translation, rotation, rotationCenter);
@@ -190,6 +190,12 @@ void AladdinAction::LoadResourceDash()
 	this->mListSprite[Global::Dash] = new SpriteManager(ResourceImage::Instance()->getMegamanSprite(),
 		listSourceRect);
 }
+void AladdinAction::LoadResourceDash_shoot()
+{
+	std::vector<Rect*> listSourceRect = ResourceFile::Instance()->LoadXML(RESOURCE_RECT_MEGAMAN, "dash_shoot");
+	this->mListSprite[Global::Dash_shoot] = new SpriteManager(ResourceImage::Instance()->getMegamanSprite(),
+		listSourceRect);
+}
 #pragma endregion
 
 void AladdinAction::UpdateRender(Global::EState state)
@@ -205,6 +211,9 @@ void AladdinAction::UpdateRender(Global::EState state)
 	case Global::Climb:this->UpdateRenderClimb(state); break;
 	case Global::Revival: this->UpdateRenderRevival(state); break;
 	case Global::Jump: this->UpdateRenderJump(state); break;
+	case Global::Dash:this->UpdateRenderDash(state); break;
+	case Global::Dash_shoot:this->UpdateRenderDash_shoot(state); break;
+
 	}
 }
 
@@ -280,7 +289,7 @@ void AladdinAction::UpdateRenderJump(Global::EState state)
 		}
 
 		//Lặp lại các hành động với số lần time
-		if (this->GetCurrentFrame(state) >= 2 && this->GetCurrentFrame(state) <= 4 && this->_time < 1)
+		if (this->GetCurrentFrame(state) >= 2 && this->GetCurrentFrame(state) <= 5 && this->_time < 1)
 		{
 			this->_time += 1;
 			this->SetCurrentFrame(state, this->GetCurrentFrame(state) - 1);
@@ -291,15 +300,15 @@ void AladdinAction::UpdateRenderJump(Global::EState state)
 		if (aladdin->getVy() > 0 && this->GetCurrentFrame(state) == 3)
 			this->SetCurrentFrame(state, 2);
 
-		if (this->GetCurrentFrame(state) == 0 || this->GetCurrentFrame(state) == 10 && !isGround)
-			this->SetCurrentFrame(state, 7);
+		if (this->GetCurrentFrame(state) == 0 || this->GetCurrentFrame(state) == 6 && !isGround)
+			this->SetCurrentFrame(state, 0);
 
 		if (isGround)
 		{
 			if (abs(aladdin->getVy()) >= 50)
 				aladdin->setState(Global::Stand);
-			else if (this->GetCurrentFrame(state) < 10)
-				this->SetCurrentFrame(state, 10);
+			else if (this->GetCurrentFrame(state) < 7)
+				this->SetCurrentFrame(state, 0);
 		}
 		break;
 	}
@@ -457,6 +466,59 @@ void AladdinAction::UpdateRenderDefense_hurt(Global::EState state)
 void AladdinAction::UpdateRenderWeak_sit(Global::EState state)
 {
 
+}
+void AladdinAction::UpdateRenderDash(Global::EState state)
+{
+	static bool endDash = false;
+	switch (state)
+	{
+	case Global::Dash:
+	{
+		if (this->GetCurrentFrame(state) == 0 && endDash  /*&& this->_time < 2*/)
+		{
+			//this->_time++;
+			this->SetCurrentFrame(state, 1);
+		}
+		else if (this->GetCurrentFrame(state) == 1)
+			endDash = true;
+		else
+			this->_time = 0;
+
+		/*if (this->GetCurrentFrame(state) == 1)
+		{
+			Aladdin* aladdin = Aladdin::getInstance();
+			aladdin->Stand();
+		}*/
+		break;
+	}
+
+	default:
+		endDash = false;
+		break;
+	}
+}
+void AladdinAction::UpdateRenderDash_shoot(Global::EState state)
+{
+	switch (state)
+	{
+	case Global::Dash_shoot:
+	{
+		if (this->GetCurrentFrame(state) == 1 && this->_time < 2)
+		{
+			this->_time++;
+			this->SetCurrentFrame(state, this->GetCurrentFrame(state) - 1);
+		}
+		else
+			this->_time = 0;
+
+		/*if (this->GetCurrentFrame(state) == 1)
+		{
+			Aladdin* aladdin = Aladdin::getInstance();
+			aladdin->Stand();
+		}*/
+		break;
+	}
+	}
 }
 
 //Xác định hướng

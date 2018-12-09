@@ -54,6 +54,7 @@ private:
 	void LoadResourceDefense_hurt();
 	void LoadResourceWeak_sit();
 	void LoadResourceDash();
+	void LoadResourceDash_shoot();
 	//===========================================================================
 	//UpdateRender
 	//===========================================================================
@@ -87,6 +88,7 @@ private:
 	void UpdateRenderDefense_hurt(Global::EState state);
 	void UpdateRenderWeak_sit(Global::EState state);
 	void UpdateRenderDash(Global::EState state);
+	void UpdateRenderDash_shoot(Global::EState state);
 	//===========================================================================
 	//Determine Direction
 	//===========================================================================

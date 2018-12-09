@@ -92,6 +92,8 @@
 	<Animation name="dash" imagePath="Character.png" w="498" h="1053">	
 		<sprite x="4" y="335" w="28" h="31" ox="2" oy="9" oW="-303" oH="411"/>
 		<sprite x="34" y="341" w="38" h="26" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="dash_shoot" imagePath="Character.png" w="498" h="1053">
 		<sprite x="76" y="335" w="37" h="31" ox="2" oy="9" oW="-303" oH="411"/>
 		<sprite x="115" y="341" w="48" h="26" ox="2" oy="9" oW="-303" oH="411"/>
 	</Animation>

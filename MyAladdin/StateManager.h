@@ -56,6 +56,7 @@ private:
 	Global::EState						getDefense_hurt(Global::EControl controler);
 	Global::EState						getWeak_sit(Global::EControl controler);
 	Global::EState						getDash(Global::EControl controler);
+	Global::EState						getDash_shoot(Global::EControl controler);
 };
 
 #endif __STATEMANAGER_H__
