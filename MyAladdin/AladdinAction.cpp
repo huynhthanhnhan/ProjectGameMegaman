@@ -76,6 +76,7 @@ void AladdinAction::LoadResource()
 	this->LoadResourceDefense_hurt();
 	this->LoadResourceWeak_sit();
 	this->LoadResourceDash();
+	this->LoadResourceDash_shoot();
 
 }
 
@@ -213,6 +214,8 @@ void AladdinAction::UpdateRender(Global::EState state)
 	case Global::Jump: this->UpdateRenderJump(state); break;
 	case Global::Dash:this->UpdateRenderDash(state); break;
 	case Global::Dash_shoot:this->UpdateRenderDash_shoot(state); break;
+	case Global::Jump_shoot:this->UpdateRenderJump_shoot(state); break;
+	case Global::In_climb:this->UpdateRenderIn_climb(state); break;
 
 	}
 }
@@ -382,9 +385,10 @@ void AladdinAction::UpdateRenderThrow(Global::EState state)
 	}
 	case Global::Run_shoot:
 	{
-		if (this->GetCurrentFrame(state) == 0 || !(KeyBoard::Instance()->isKeyPress(DIK_LEFT) || KeyBoard::Instance()->isKeyPress(DIK_RIGHT)))
+		if (this->GetCurrentFrame(state) == 0)
 		{
-			aladdin->Stand();
+			aladdin->setState(Global::Run_shoot);
+			this->SetCurrentFrame(Global::Run_shoot, 0);
 		}
 		break;
 	}
@@ -429,11 +433,32 @@ void AladdinAction::UpdateRenderRun_shoot(Global::EState state)
 }
 void AladdinAction::UpdateRenderJump_shoot(Global::EState state)
 {
-
+	switch (state)
+	{
+	case Global::Jump_shoot:
+	{
+		if ((this->GetCurrentFrame(state) == 0 || this->GetCurrentFrame(state) == 1 )&&this->_time<2)
+		{
+			this->_time++;
+			this->SetCurrentFrame(state, 2);
+		}
+		else
+		{
+			this->_time = 0;
+		}
+		if (this->GetCurrentFrame(state) == 6)
+		{
+			this->SetCurrentFrame(state, 6);
+		}
+		break;
+		
+	}
+	}
 }
 void AladdinAction::UpdateRenderIn_climb(Global::EState state)
 {
-
+	if (this->GetCurrentFrame(state) != 2)
+		this->SetCurrentFrame(state, 2);
 }
 void AladdinAction::UpdateRenderOut_climb(Global::EState state)
 {

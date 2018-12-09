@@ -85,7 +85,7 @@ void Bullet::Render(Global::EDirection direct, Global::EState state, D3DXVECTOR3
 	else
 		Animation::Render(direct, _state, position, D3DXVECTOR2(1, 1), D3DXVECTOR2(0, 0), _rotation);
 	this->UpdateRender(_state);
-	this->_rotation += (direct == Global::Right) ? -1 : 1;
+	//this->_rotation += (direct == Global::Right) ? -1 : 1;
 }
 
 void Bullet::Refresh()

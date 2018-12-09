@@ -337,5 +337,8 @@
     <Xml Include="CharacterXML.xml">
       <Filter>FrameWork\XMLResource</Filter>
     </Xml>
+    <Xml Include="Bullet.xml">
+      <Filter>FrameWork\XMLResource</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

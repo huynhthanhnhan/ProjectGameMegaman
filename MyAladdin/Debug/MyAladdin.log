@@ -1,14 +1,14 @@
 ﻿  StaticObject.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(97): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(98): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(101): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(106): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(111): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(99): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(102): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(107): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
 c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(112): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(133): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(113): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
 c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(134): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(225): warning C4018: '<': signed/unsigned mismatch
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(271): warning C4018: '<': signed/unsigned mismatch
+c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(135): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(226): warning C4018: '<': signed/unsigned mismatch
+c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(272): warning C4018: '<': signed/unsigned mismatch
   MyAladdin.vcxproj -> C:\Users\huynh\Desktop\New folder\Debug\Aladdin_Directx.exe
   MyAladdin.vcxproj -> C:\Users\huynh\Desktop\New folder\Debug\Aladdin_Directx.pdb (Full PDB)

@@ -3,13 +3,14 @@
 #define __APPLE_H__
 #include"Bullet.h"
 #include"Sound.h"
-#define DISTANCE_APPLE 5
+#define DISTANCE_APPLE 10
 
 //Diễn tả chuyển động của quả táo
 class Apple :public Bullet
 {
 public:
 	Sound* _sound;
+	int _time = 0;
 	Apple(int x, int y, Global::EDirection direct);
 	~Apple();
 	// Inherited via Bullet

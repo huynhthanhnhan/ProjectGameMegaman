@@ -18,6 +18,8 @@ using namespace std;
 
 #define RESOURCE_RECT_MEGAMAN	"CharacterXML.xml"
 
+#define RESOURCE_RECT_BULLET	"Bullet.xml"
+
 class ResourceFile
 {
 private:

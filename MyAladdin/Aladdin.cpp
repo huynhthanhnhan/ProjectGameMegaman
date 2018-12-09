@@ -35,6 +35,8 @@ void Aladdin::Init(int x, int y, int number_apple, int hp, int life)
 	this->_countDash = 0;
 	this->_countJump = 0;
 	this->_timeAction = 0;
+	this->_countShoot = 0;
+	this->_typeShoot = 0;
 	this->_ay = -ACCELERATION;//Vì chiều dương hướng của trục y hướng xuống(= gia tốc trọng trường)
 	this->_decideStair = 0;
 
@@ -83,6 +85,9 @@ void Aladdin::update(float deltaTime)
 	this->_countDash += (_state == Global::Dash) ? 1 : 0;
 	this->_countRun += (_state == Global::Run) ? 1 : 0;
 	this->_countJump += (_state == Global::Jump) ? 1 : 0;
+	this->_countShoot++;
+	if (_state == Global::Stand_shoot || _state == Global::Run_shoot || _state == Global::Jump_shoot || _state == Global::Dash_shoot)
+		this->_typeShoot++;
 }
 
 void Aladdin::render()
@@ -127,20 +132,122 @@ void Aladdin::render()
 		return;
 
 	//Create Apple
-	switch (_state)
+	if (this->_countShoot >= 5)
 	{
-	case Global::Stand_shoot:
-	{
-		D3DXVECTOR2 appleLocation;	//Apple location to create a apple
-		float d = 20;
+		switch (_state)
+		{
+		case Global::Stand_shoot:
+		{
+			this->_countShoot = 0;
+			D3DXVECTOR2 appleLocation;	//Apple location to create a apple
+			float d = 5;
 
-		appleLocation.x = (_direct == Global::Right) ? this->_x + d : this->_x - d;
+			appleLocation.x = (_direct == Global::Right) ? this->_x + d : this->_x - d;
+			appleLocation.y = _rectBound.top - 108;
+			Apple* apple = new Apple(appleLocation.x, appleLocation.y, this->_direct);
+			if(_typeShoot<=5)
+				apple->setState(Global::Stand);
+			else
+			{
+				if (_typeShoot > 5 && _typeShoot <= 10)
+					apple->setState(Global::Run);
+				else
+				{
+					if (_typeShoot > 10)
+						apple->setState(Global::Dash);
+				}
+			}
+			BulletManager::Instance()->addBullet(apple);
+			_typeShoot = 0;
+			//this->_numberOfApple--;
+			
+			break;
+		}
+		case Global::Jump_shoot:
+		{
+			this->_countShoot = 0;
+			D3DXVECTOR2 appleLocation;	//Apple location to create a apple
+			float d = 5;
 
-		BulletManager::Instance()->addBullet(new Apple(appleLocation.x, appleLocation.y, this->_direct));
-		//this->_numberOfApple--;
-		break;
+			appleLocation.x = (_direct == Global::Right) ? this->_x + d : this->_x - d;
+			appleLocation.y = _rectBound.top - 112;
 
-	}
+			Apple* apple = new Apple(appleLocation.x, appleLocation.y, this->_direct);
+			if (_typeShoot <= 5)
+				apple->setState(Global::Stand);
+			else
+			{
+				if (_typeShoot > 5 && _typeShoot <= 10)
+					apple->setState(Global::Run);
+				else
+				{
+					if (_typeShoot > 10)
+						apple->setState(Global::Dash);
+				}
+			}
+			BulletManager::Instance()->addBullet(apple);
+			_typeShoot = 0;
+			//this->_numberOfApple--;
+			
+			break;
+		}
+		case Global::Run_shoot:
+		{
+			this->_countShoot = 0;
+			D3DXVECTOR2 appleLocation;	//Apple location to create a apple
+			float d = 20;
+
+			appleLocation.x = (_direct == Global::Right) ? this->_x + d : this->_x - d;
+			appleLocation.y = _rectBound.top - 108;
+
+			Apple* apple = new Apple(appleLocation.x, appleLocation.y, this->_direct);
+			if (_typeShoot <= 5)
+				apple->setState(Global::Stand);
+			else
+			{
+				if (_typeShoot > 5 && _typeShoot <= 10)
+					apple->setState(Global::Run);
+				else
+				{
+					if (_typeShoot > 10)
+						apple->setState(Global::Dash);
+				}
+			}
+			BulletManager::Instance()->addBullet(apple);
+			_typeShoot = 0;
+			//this->_numberOfApple--;
+			
+			break;
+		}
+		case Global::Dash_shoot:
+		{
+			this->_countShoot = 0;
+			D3DXVECTOR2 appleLocation;	//Apple location to create a apple
+			float d = 20;
+
+			appleLocation.x = (_direct == Global::Right) ? this->_x + d : this->_x - d;
+			appleLocation.y = _rectBound.top - 112;
+
+			Apple* apple = new Apple(appleLocation.x, appleLocation.y, this->_direct);
+			if (_typeShoot <= 5)
+				apple->setState(Global::Stand);
+			else
+			{
+				if (_typeShoot > 5 && _typeShoot <= 10)
+					apple->setState(Global::Run);
+				else
+				{
+					if (_typeShoot > 10)
+						apple->setState(Global::Dash);
+				}
+			}
+			BulletManager::Instance()->addBullet(apple);
+			_typeShoot = 0;
+			//this->_numberOfApple--;
+			
+			break;
+		}
+		}
 	}
 }
 
@@ -342,7 +449,7 @@ void Aladdin::caculateSpeed(float deltaTime)
 		canMoveX = false;
 		this->_v0 /= 2;
 		angle = 1.571;
-		if(!KeyBoard::Instance()->isKeyPress(DIK_LEFT)&&!KeyBoard::Instance()->isKeyPress(DIK_RIGHT))
+		/*if(!KeyBoard::Instance()->isKeyPress(DIK_LEFT)&&!KeyBoard::Instance()->isKeyPress(DIK_RIGHT))*/
 		{
 			//this->_aladdinAction->setDirect(Global::None);
 			canMoveY = false;
@@ -352,7 +459,7 @@ void Aladdin::caculateSpeed(float deltaTime)
 	}
 	case Global::Jump:
 	{
-		this->_v0 *=2;
+		this->_v0 *=1.5;
 		angle = 1.571;
 		if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT) || KeyBoard::Instance()->isKeyPress(DIK_LEFT))
 			canMoveX = true;
@@ -363,13 +470,46 @@ void Aladdin::caculateSpeed(float deltaTime)
 		//	canMoveY = false;
 		break;
 	}
+	case Global::Jump_shoot:
+	{
+		this->_v0 *= 1.5;
+		angle = 1.571;
+		if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT) || KeyBoard::Instance()->isKeyPress(DIK_LEFT))
+			canMoveX = true;
+		else
+			canMoveX = false;
+		canMoveY = false;
+		//if (this->_isGround)
+		//	canMoveY = false;
+		break;
+	}
 	case Global::Dash:
 	{
 		angle = 1.0f;
-		this->_vx = 100;
+		this->_vx = 10;
 		this->_v0 *= 1;
 		canMoveX = true;
 		canMoveY = false;
+		break;
+	}
+	case Global::Dash_shoot:
+	{
+		angle = 1;
+		this->_vx = 10;
+		canMoveX = true;
+		canMoveY = false;
+		break;
+	}
+	case Global::Run_shoot:
+	{
+		this->_vx = 10;
+		angle = 1;
+		if (KeyBoard::Instance()->isKeyPress(DIK_RIGHT) || KeyBoard::Instance()->isKeyPress(DIK_LEFT))
+			canMoveX = true;
+		else
+			canMoveX = false;
+		if (this->_isGround)
+			canMoveY = false;
 		break;
 	}
 	case Global::Stand_shoot:
@@ -465,6 +605,13 @@ void Aladdin::Jump()
 	{
 		Aladdin* aladdin = Aladdin::getInstance();
 		aladdin->Stand();
+		this->_countJump = 0;
+		return;
+	}
+	if (_state == Global::Jump_shoot && this->_countJump >= 6 && this->_isGround)
+	{
+		Aladdin* aladdin = Aladdin::getInstance();
+		aladdin->Jump_shoot();
 		this->_countJump = 0;
 		return;
 	}
@@ -640,6 +787,16 @@ void Aladdin::Stand_shoot()
 {
 	if (_state == Global::Stand_shoot)
 		return;
+	if (_state == Global::Jump)
+	{
+		this->Jump();
+		return;
+	}
+	if (_state == Global::Run_shoot)
+	{
+		this->Run_shoot();
+		return;
+	}
 	this->_aladdinAction->Refresh();
 	this->_timeAction = 0;
 	this->_state = Global::Stand_shoot;
@@ -656,6 +813,11 @@ void Aladdin::Run_shoot()
 {
 	if (_state == Global::Run_shoot)
 		return;
+	if (_state == Global::Dash_shoot)
+	{
+		this->Dash_shoot();
+		return;
+	}
 	this->_aladdinAction->Refresh();
 	this->_timeAction = 0;
 	this->_state = Global::Run_shoot;
@@ -740,6 +902,14 @@ void Aladdin::Dash()
 		aladdin->Stand();
 		this->_countDash = 0;
 		bDash = false;;
+		return;
+	}
+	if (_state == Global::Dash_shoot && this->_countDash >= 4 && this->_isGround)
+	{
+		Aladdin* aladdin = Aladdin::getInstance();
+		aladdin->Dash_shoot();
+		this->_countDash = 0;
+		//bDash = false;;
 		return;
 	}
 	this->_aladdinAction->Refresh();

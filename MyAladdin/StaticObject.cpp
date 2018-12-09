@@ -86,7 +86,8 @@ Collision::ResultCollision StaticObject::processCollision(Object * obj)
 		if (obj->getId() == Global::ALADDIN)
 		{
 			Aladdin* aladdin = (Aladdin*)obj;
-			aladdin->In_climb();
+			if(aladdin->getState()==Global::Jump)
+				aladdin->In_climb();
 		}
 		listLocation.push_back(result.intersectionPoint);
 	}

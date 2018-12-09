@@ -15,7 +15,7 @@ Apple::Apple(int x, int y, Global::EDirection direct)
 	this->_angle = 0;//0.26;//15 độ
 	this->_rotation = 0;
 	this->updateBody();
-	this->_distanceBullet = DISTANCE_APPLE;
+	this->_distanceBullet = 25;//DISTANCE_APPLE;
 	this->LoadResource();
 }
 
@@ -30,49 +30,64 @@ Collision::ResultCollision Apple::processCollision(Object * obj)
 
 void Apple::LoadResource()
 {
-	vector<Rect*>	_listRectSource;
-	float top = 10, bottom = 42;
-	_listRectSource.push_back(new Rect(top, 369, 385, bottom, D3DXVECTOR3(-1, 21, 0)));
-	_listRectSource.push_back(new Rect(top, 390, 406, bottom, D3DXVECTOR3(-1, 21, 0)));
-	_listRectSource.push_back(new Rect(top, 411, 436, bottom, D3DXVECTOR3(-1, 21, 0)));
-	_listRectSource.push_back(new Rect(top, 439, 476, bottom, D3DXVECTOR3(-1, 21, 0)));
-	_listRectSource.push_back(new Rect(top, 479, 519, bottom, D3DXVECTOR3(-1, 21, 0)));
-	_listRectSource.push_back(new Rect(top, 525, 565, bottom, D3DXVECTOR3(-1, 21, 0)));
+	std::vector<Rect*>	_listRectSource = ResourceFile::Instance()->LoadXML(RESOURCE_RECT_BULLET, "Bullet_lv1");
 
-	this->mListSprite[Global::Stand] = new SpriteManager(ResourceImage::Instance()->getAladdinTexture(),
+	this->mListSprite[Global::Stand] = new SpriteManager(ResourceImage::Instance()->getExplosingTexture(),
 		_listRectSource);
 
-	//=========================================================
-	//Explosing Apple
-	//=========================================================
-	std::vector<Rect*> explosing_apple = ResourceFile::Instance()->LoadXML(RESOURCE_RECT_EXPLOSING, "abuExplosing");
-	this->mListSprite[Global::Dead] = new SpriteManager(ResourceImage::Instance()->getExplosingTexture(),
-		explosing_apple);
+	_listRectSource = ResourceFile::Instance()->LoadXML(RESOURCE_RECT_BULLET, "Bullet_lv2");
+
+	this->mListSprite[Global::Run] = new SpriteManager(ResourceImage::Instance()->getExplosingTexture(),
+		_listRectSource);
+
+	_listRectSource = ResourceFile::Instance()->LoadXML(RESOURCE_RECT_BULLET, "Bullet_lv3");
+
+	this->mListSprite[Global::Dash] = new SpriteManager(ResourceImage::Instance()->getExplosingTexture(),
+		_listRectSource);
+
+	////=========================================================
+	////Explosing Apple
+	////=========================================================
+	//std::vector<Rect*> explosing_apple = ResourceFile::Instance()->LoadXML(RESOURCE_RECT_BULLET,"Bullet_lv1");
+	//this->mListSprite[Global::Dead] = new SpriteManager(ResourceImage::Instance()->getExplosingTexture(),
+	//	explosing_apple);
 
 }
 
 void Apple::UpdateRender(Global::EState currentState)
 {
-	if (currentState == Global::Stand)
-	{
-		if (!this->isGround())
-			this->SetCurrentFrame(currentState, 0);//Chỉ hiện thị hình ảnh quả táo
-		else
-		{
-			if (this->GetCurrentFrame(_state) == 2)
-			{
-				this->_sound = Sound::Instance();
-				this->_sound->play(SOUND_REACH_APPLE);
-			}
-		}
-	}
-	else
-	{
-		this->_ax = this->_ay = this->_v0 = 0;
-		this->_angle = 0;
-		this->_rotation = 0;
-		this->_distanceBullet = 0;
-	}
+	//switch (currentState)
+	//{
+	//case Global::Stand:
+	//{
+	//		
+	//	break;
+	//}
+	//case Global::Run:
+	//{
+	//	break;
+	//}
+	//case Global::Dash:
+	//{
+	//	break;
+	//}
+	//default:
+	//{
+	//	this->_ax = this->_ay = this->_v0 = 0;
+	//	this->_angle = 0;
+	//	this->_rotation = 0;
+	//	this->_distanceBullet = 0;
+	//	break;
+	//}
+	//	
+	//}
+	//
+	//{
+	//	/*this->_ax = this->_ay = this->_v0 = 0;
+	//	this->_angle = 0;
+	//	this->_rotation = 0;
+	//	this->_distanceBullet = 0;*/
+	//}
 }
 
 bool Apple::isFinish()

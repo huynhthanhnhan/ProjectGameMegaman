@@ -179,7 +179,7 @@ void PlaySence::ProcessInput()
 	else
 		Aladdin::getInstance()->bDash = true;
 
-	if (key->isKeyPress(DIK_A))
+	if (key->isKeyDown(DIK_A))
 	{
 		controller = Global::ThrowControl;
 	}

@@ -250,6 +250,7 @@
     <ClInclude Include="WRect.h" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="Bullet.xml" />
     <Xml Include="CharacterXML.xml" />
     <Xml Include="ExplosingResource.xml" />
     <Xml Include="EnemyResource.xml">

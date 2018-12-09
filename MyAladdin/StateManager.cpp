@@ -559,7 +559,7 @@ Global::EState StateManager::getStand_shoot(Global::EControl controller)
 	case Global::UpControl: break;
 	case Global::ThrowControl: break;
 	case Global::HitControl: newState = Global::Dash; break;
-	case Global::JumpControl:newState = Global::Jump_shoot; break;
+	case Global::JumpControl:newState = Global::Jump; break;
 	}
 	return newState;
 }
@@ -574,7 +574,7 @@ Global::EState StateManager::getRun_shoot(Global::EControl controller)
 	case Global::DownControl: break;
 	case Global::UpControl: break;
 	case Global::ThrowControl: break;
-	case Global::HitControl:newState = Global::Dash; break;
+	case Global::HitControl:newState = Global::Dash_shoot; break;
 	case Global::JumpControl:newState = Global::Jump_shoot; break;
 	}
 	return newState;

@@ -192,8 +192,8 @@ void ResourceImage::LoadResource()
 	//================================================================
 	//Explosing
 	//================================================================
-	this->_explosing = graphics->LoadTexture("AnimationSource\\Explosing.png", D3DCOLOR_XRGB(186, 254, 202));
-	this->_explosing1 = graphics->LoadTexture("AnimationSource\\explosion1.png");
+	this->_explosing = graphics->LoadTexture("AnimationSource\\Bullet.png", D3DCOLOR_XRGB(50, 96, 166));
+	this->_explosing1 = graphics->LoadTexture("AnimationSource\\Bullet.png");
 	//================================================================
 	//Map
 	//================================================================

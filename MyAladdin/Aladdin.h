@@ -39,6 +39,8 @@ private:
 	int _countDash;
 	
 	int _countJump;
+	int _countShoot;
+	int _typeShoot;
 	//Hình chữ nhật dành để xét va chạm với cầu thang, đất, dây...
 	WRect						_rectBound2;
 	//hình chữ nhật dành riêng để xét va chạm với thanh bar giúp game mượt hơn khi nhảy lên thanh bar
