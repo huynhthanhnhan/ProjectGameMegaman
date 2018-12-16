@@ -41,6 +41,8 @@ void Civilian1::update(float deltaTime)
 		this->takeAction(Global::Attack);
 	else if(this->_isFinishAction)
 		this->takeAction(Global::NoneAction);
+	if (this->_state == Global::Attack && this->GetCurrentFrame(_state) == 7)
+		BulletManager::Instance()->addBullet(new Civilian1Bullet(this->_x + this->_width + 30, this->_y - this->_height - 50, Global::Right));
 }
 
 void Civilian1::DetermineDirection(Global::EState state, Global::EDirection direct)
@@ -57,7 +59,7 @@ void Civilian1::LoadResource()
 	//=========================================================
 	//Attack
 	//=========================================================
-	std::vector<Rect*> attackResource = ResourceFile::Instance()->LoadXML(RESOURCE_RECT_ENEMY, "Civilian1_Attack");
+	std::vector<Rect*> attackResource = ResourceFile::Instance()->LoadXML(RESOURCE_RECT_ENEMY1, "Civilian1_Attack");
 	for each (auto rect in attackResource)
 		rect->setCenter(0, 0, 0);
 

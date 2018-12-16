@@ -69,8 +69,7 @@ void FireBurning::update(float deltaTime)
 {
 	if (this->_state == Global::Stand && this->GetCurrentFrame(this->_state) == 1)
 	{
-		this->_sound = Sound::Instance();
-		this->_sound->play(SOUND_FIRE_FROM_COAL);
+
 	}
 	if (!_start)
 	{

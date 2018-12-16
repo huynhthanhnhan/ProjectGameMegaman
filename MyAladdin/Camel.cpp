@@ -30,8 +30,6 @@ void Camel::update(float deltaTime)
 {
 	if (this->GetCurrentFrame(Global::ThrowSitDown) == 1)
 	{
-		this->_sound = Sound::Instance();
-		this->_sound->play(SOUND_CAMEL);
 	}
 	this->_deltaTime = deltaTime;
 }
@@ -53,7 +51,7 @@ Collision::ResultCollision Camel::processCollision(Object * obj)
 	{
 		aladdin->setCurrentLocation(aladdin->getX() + aladdin->getVx() * result.collisionTime, aladdin->getY() + aladdin->getVy()*result.collisionTime);
 		aladdin->setState(Global::Stand);
-		aladdin->JumpRun();
+		//aladdin->JumpRun();
 		this->Throw();
 	}
 	return Collision::ResultCollision();

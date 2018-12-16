@@ -13,11 +13,20 @@ private:
 	int							_count;
 	int							_maxCount;
 	Global::EDirection			_direct;
+	WRect						_rope;
+	WRect						_column;
+	WRect						_bar;
 public:
 	AladdinAction();
 	~AladdinAction();
 
 	void setDirect(Global::EDirection direct);
+	void setRope(WRect rope);
+	void setColumn(WRect column);
+	void setBar(WRect bar);
+	WRect getRope();
+	WRect getColumn();
+	WRect getBar();
 
 	virtual void Render(Global::EDirection direct, Global::EState state, D3DXVECTOR3 position, D3DXVECTOR2 scale = D3DXVECTOR2(1, 1), D3DXVECTOR2 translation = D3DXVECTOR2(0, 0), float rotation = 0, D3DXVECTOR2 rotationCenter = D3DXVECTOR2(0, 0));
 
@@ -30,7 +39,12 @@ private:
 	//===========================================================================
 	virtual void LoadResource() override;
 	void LoadResourceStand();
+	void LoadResourceSitDown();
+	void LoadResourceStandUp();
+	void LoadResourceLookUp();
+	void LoadResourceLookDown();
 	void LoadResourceHurt();
+	void LoadResourceSwing();
 	void LoadResourceRun();
 	void LoadResourcePushWall();
 	void LoadResourceJump();
@@ -41,20 +55,13 @@ private:
 	void LoadResourceRevival();
 
 	void LoadResourceAppearance();
+	void LoadResourceDash();
+	void LoadResourceIn_climb();
 	void LoadResourceStand_shoot();
 	void LoadResourceRun_shoot();
 	void LoadResourceJump_shoot();
-	void LoadResourceIn_climb();
-	void LoadResourceOut_climb();
-	void LoadResourceIn_climb_shoot();
-	void LoadResourceOut_climb_shoot();
-	void LoadResourceClimb_ladder();
-	void LoadResourceClimb_ladder_shoot();
-	void LoadResourceDestroyed();
-	void LoadResourceDefense_hurt();
-	void LoadResourceWeak_sit();
-	void LoadResourceDash();
 	void LoadResourceDash_shoot();
+	void LoadResourceIn_climb_shoot();
 	//===========================================================================
 	//UpdateRender
 	//===========================================================================
@@ -75,20 +82,14 @@ private:
 	void UpdateRenderRevival(Global::EState state);
 
 	void UpdateRenderAppearance(Global::EState state);
+	void UpdateRenderDash(Global::EState state);
+	void UpdateRenderIn_climb(Global::EState state);
 	void UpdateRenderStand_shoot(Global::EState state);
 	void UpdateRenderRun_shoot(Global::EState state);
 	void UpdateRenderJump_shoot(Global::EState state);
-	void UpdateRenderIn_climb(Global::EState state);
-	void UpdateRenderOut_climb(Global::EState state);
-	void UpdateRenderIn_climb_shoot(Global::EState state);
-	void UpdateRenderOut_climb_shoot(Global::EState state);
-	void UpdateRenderClimb_ladder(Global::EState state);
-	void UpdateRenderClimb_ladder_shoot(Global::EState state);
-	void UpdateRenderDestroyed(Global::EState state);
-	void UpdateRenderDefense_hurt(Global::EState state);
-	void UpdateRenderWeak_sit(Global::EState state);
-	void UpdateRenderDash(Global::EState state);
 	void UpdateRenderDash_shoot(Global::EState state);
+	void UpdateRenderIn_climb_shoot(Global::EState state);
+
 	//===========================================================================
 	//Determine Direction
 	//===========================================================================

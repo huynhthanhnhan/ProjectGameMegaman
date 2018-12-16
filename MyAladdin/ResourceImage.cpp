@@ -185,6 +185,10 @@ LPDIRECT3DTEXTURE9 ResourceImage::getMegamanSprite()
 	return this->_MegamanSprite;
 }
 
+LPDIRECT3DTEXTURE9 ResourceImage::getEnemy()
+{
+	return this->_enemy;
+}
 
 void ResourceImage::LoadResource()
 {
@@ -193,11 +197,11 @@ void ResourceImage::LoadResource()
 	//Explosing
 	//================================================================
 	this->_explosing = graphics->LoadTexture("AnimationSource\\Bullet.png", D3DCOLOR_XRGB(50, 96, 166));
-	this->_explosing1 = graphics->LoadTexture("AnimationSource\\Bullet.png");
+	this->_explosing1 = graphics->LoadTexture("AnimationSource\\explosion1.png");
 	//================================================================
 	//Map
 	//================================================================
-	this->_map.push_back(graphics->LoadTexture("Map\\map.png", D3DCOLOR_XRGB(63, 72, 204)));
+	this->_map.push_back(graphics->LoadTexture("Map\\Map.png", D3DCOLOR_XRGB(63, 72, 204)));
 	this->_map.push_back(graphics->LoadTexture("Map\\MapLevel1_part2.png", D3DCOLOR_XRGB(63, 72, 204)));
 	this->_map.push_back(graphics->LoadTexture("Map\\pillars.png", D3DCOLOR_XRGB(63, 72, 204)));
 	this->_map.push_back(graphics->LoadTexture("Map\\palace_back.png", D3DCOLOR_XRGB(63, 72, 204)));
@@ -291,4 +295,5 @@ void ResourceImage::LoadResource()
 	this->_menu = graphics->LoadTexture("AnimationSource\\intro.png");
 
 	this->_MegamanSprite = graphics->LoadTexture("AnimationSource\\MegamanSprite.png");
+	this->_enemy = graphics->LoadTexture("AnimationSource\\Enemy.png", D3DCOLOR_XRGB(50, 96, 166));
 }

@@ -48,6 +48,8 @@ private:
 	LPDIRECT3DTEXTURE9				_stick;
 	LPDIRECT3DTEXTURE9				_dead;
 
+	LPDIRECT3DTEXTURE9				_enemy;
+
 	LPDIRECT3DTEXTURE9				_MegamanSprite;
 public:
 	ResourceImage();
@@ -88,6 +90,7 @@ public:
 	LPDIRECT3DTEXTURE9				getStick();
 
 	LPDIRECT3DTEXTURE9				getMegamanSprite();
+	LPDIRECT3DTEXTURE9				getEnemy();
 
 private:
 	void							LoadResource();

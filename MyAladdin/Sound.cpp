@@ -5,8 +5,8 @@ Sound*			Sound::__instance = nullptr;
 Sound::Sound()
 {
 	this->init();
-	this->loadSound(SOUND_BACKGOUND);
-	/*this->loadSound(SOUND_BACKGROUND_BOSS);
+	/*this->loadSound(SOUND_BACKGOUND);
+	this->loadSound(SOUND_BACKGROUND_BOSS);
 	this->loadSound(SOUND_STICK);
 	this->loadSound(SOUND_FIRE_FROM_COAL);
 	this->loadSound(SOUND_HIGH_SWORD);

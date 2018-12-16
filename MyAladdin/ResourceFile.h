@@ -11,7 +11,7 @@ using namespace std;
 //Read file xml and return a list of rectangle's size
 
 #define RESOURCE_RECT_ALADDIN	"AladdinResource.xml"
-#define RESOURCE_RECT_ENEMY		"EnemyResource.xml"
+#define RESOURCE_RECT_ENEMY1		"EnemyResource.xml"
 #define RESOURCE_RECT_EXPLOSING "ExplosingResource.xml"
 #define RESOURCE_RECT_ITEM		"ItemResource.xml"
 #define RESOURCE_RECT_JAFAR		"JafarResource.xml"
@@ -19,6 +19,8 @@ using namespace std;
 #define RESOURCE_RECT_MEGAMAN	"CharacterXML.xml"
 
 #define RESOURCE_RECT_BULLET	"Bullet.xml"
+	
+#define RESOURCE_RECT_ENEMY		"EnemyXML.xml"
 
 class ResourceFile
 {

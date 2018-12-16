@@ -87,8 +87,7 @@ void Sword::UpdateRender(Global::EState currentState)
 	{
 		if (this->GetCurrentFrame(Global::Hurting) == 1)
 		{
-			this->_sound = Sound::Instance();
-			this->_sound->play(SOUND_SWORD_CHING);
+			
 		}
 	}
 	}

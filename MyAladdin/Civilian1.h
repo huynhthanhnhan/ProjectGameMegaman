@@ -2,6 +2,7 @@
 #ifndef __CIVILIAN_H__
 #define __CIVILIAN_H__
 #include"Enemy.h"
+#include"Civilian1Bullet.h"
 #define V_CIVILIAN1 0
 #define W_CIVILIAN1_NORMAL 32
 #define H_CIVILIAN1_NORMAL 64

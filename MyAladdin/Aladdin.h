@@ -13,11 +13,13 @@
 #include"AladdinAction.h"
 #include"Sound.h"
 #include"BulletManager.h"
+#include "JafarBullet.h"
+#include"SnakeBullet.h"
 #include<math.h>
 #pragma endregion
 
 //Quảng đường đi được trong một bước chân của Aladdin
-#define	DISTANCE	15
+#define	DISTANCE	10
 #define ALADDIN_WIDTH 80
 #define ALADDIN_HEIGHT_NORMAL 120
 #define ALADDIN_HEIGHT_SITDOWN 60
@@ -35,12 +37,6 @@ private:
 	float						_deltaTime;
 	//Đếm số bước chạy của nhân vật
 	int							_countRun;
-
-	int _countDash;
-	
-	int _countJump;
-	int _countShoot;
-	int _typeShoot;
 	//Hình chữ nhật dành để xét va chạm với cầu thang, đất, dây...
 	WRect						_rectBound2;
 	//hình chữ nhật dành riêng để xét va chạm với thanh bar giúp game mượt hơn khi nhảy lên thanh bar
@@ -61,7 +57,6 @@ private:
 	bool						_isVictory2;
 	bool						_isGameOver;
 public:
-	bool bDash;
 	//=====================================================
 	//Init
 	//=====================================================
@@ -75,14 +70,31 @@ public:
 	virtual void				update(float deltaTime);
 	virtual void				render();
 	virtual void				updateBody();
+	void Charge(float delta);
 	virtual Collision::ResultCollision
 								processCollision(Object* obj);
+	bool bDash;
+	int _countDash;
+	int _countJump;
+	bool IsClimb();
+	bool bCharge;
+	int bulletLv;
+	float _timeCharge;
+	float _timeActionTemp;
 #pragma region Action Method
 	void						Stand();
 	void						Running();
+	void						SitDown();
+	void						StandUp();
+	void						LookUp();
+	void						LookDown();
 	bool						IsPushWall();
 	void						PushWall();
 	void						Climb();
+	void						Climb_Drop();
+
+	void						Swing();
+	void						StopSwing();
 
 	void						Hurting();
 
@@ -105,11 +117,8 @@ public:
 	void						ThrowRun();
 
 	bool						IsJump();
-	void						JumpStand();
-	void						JumpRun();
-	void						JumpClimb();
-	void						JumpSwing();
-	void						JumpRotate();
+
+	void						Jump();
 	
 	void						Fall();
 
@@ -118,24 +127,12 @@ public:
 	
 	void						StopJump();
 	void						StopRun();
-
-	void						Appearance();
+	void						Dash();
+	void						In_climb();
 	void Stand_shoot();
-	void Run();
 	void Run_shoot();
-	void Jump();
 	void Jump_shoot();
-	void In_climb();
-	void Out_climb();
 	void In_climb_shoot();
-	void Out_climb_shoot();
-	void Climb_ladder();
-	void Climb_ladder_shoot();
-	void Dash();
-	void Destroyed();
-	void Hurt();
-	void Defense_hurt();
-	void Weak_sit();
 	void Dash_shoot();
 
 #pragma endregion
@@ -166,11 +163,6 @@ public:
 	int							getNumberOfGem();
 	int							getScore();
 	int							getLife();
-
-	void getXY() {
-		cout << this->_x
-			<< this->_y;
-	}
 private:
 	void						loadResource();
 	void						caculateSpeed(float deltaTime);

@@ -3,16 +3,16 @@
 #define __APPLE_H__
 #include"Bullet.h"
 #include"Sound.h"
-#define DISTANCE_APPLE 10
+#define DISTANCE_APPLE 20
 
 //Diễn tả chuyển động của quả táo
 class Apple :public Bullet
 {
 public:
 	Sound* _sound;
-	int _time = 0;
 	Apple(int x, int y, Global::EDirection direct);
 	~Apple();
+	float _timeLife;
 	// Inherited via Bullet
 	virtual Collision::ResultCollision processCollision(Object * obj) override;
 	virtual void LoadResource() override;

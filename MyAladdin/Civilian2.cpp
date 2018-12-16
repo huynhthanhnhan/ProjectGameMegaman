@@ -49,10 +49,7 @@ void Civilian2::update(float deltaTime)
 		int x = (this->_direct == Global::Left) ? _x : _x + _width;
 		BulletManager::Instance()->addBullet(new Sword(x, _y + _height, _direct, angle, 50));
 
-		this->_sound = Sound::Instance();
-		this->_sound->play(SOUND_SWORD_SPINNING);
-
-	}
+			}
 
 	this->_direct = (this->_x > this->_aladdinLocation.x) ? Global::Left : Global::Right;
 }

@@ -1,14 +1,104 @@
-﻿  StaticObject.cpp
+﻿  Apple.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(98): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(99): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(102): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(107): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(112): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(113): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(134): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(135): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(226): warning C4018: '<': signed/unsigned mismatch
-c:\users\huynh\desktop\new folder\myaladdin\staticobject.cpp(272): warning C4018: '<': signed/unsigned mismatch
-  MyAladdin.vcxproj -> C:\Users\huynh\Desktop\New folder\Debug\Aladdin_Directx.exe
-  MyAladdin.vcxproj -> C:\Users\huynh\Desktop\New folder\Debug\Aladdin_Directx.pdb (Full PDB)
+  Generating Code...
+  Compiling...
+  Aladdin.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(26): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(76): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(77): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(81): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(82): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(183): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(185): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(191): warning C4244: 'argument': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(202): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(203): warning C4244: 'argument': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(229): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(231): warning C4244: 'argument': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(260): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(262): warning C4244: 'argument': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(288): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(290): warning C4244: 'argument': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(316): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(318): warning C4244: 'argument': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(385): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(386): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(388): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(389): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(390): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(415): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(416): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(418): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(419): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(420): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(431): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(451): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(453): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(403): warning C4101: 'isAttack': unreferenced local variable
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(514): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(554): warning C4305: '*=': truncation from 'double' to 'float'
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(555): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(587): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(609): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(638): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(672): warning C4305: '/=': truncation from 'double' to 'float'
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(673): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(733): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(734): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(1186): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(1187): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(1193): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(1194): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(1311): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(1330): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\users\huynh\desktop\gamemegaman (1)\gamemegaman\gamemegaman\myaladdin\aladdin.cpp(1339): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Wall.cpp
+  Trap.cpp
+  TeaPotItem.cpp
+  Stick.cpp
+  StaticObject.cpp
+  Stair.cpp
+  SnakeBullet.cpp
+  Rope.cpp
+  QuadTree.cpp
+  QNode.cpp
+  PlaySence.cpp
+  Platform.cpp
+  Peddler.cpp
+  ObjectFactory.cpp
+  Object.cpp
+  Notorbanger.cpp
+  Map.cpp
+  JarItem.cpp
+  JafarBullet.cpp
+  Jafar.cpp
+  ItemObject.cpp
+  Helit.cpp
+  HeartItem.cpp
+  HeadGunner.cpp
+  Guard3.cpp
+  Guard2.cpp
+  Guard1.cpp
+  Ground.cpp
+  GenieItem.cpp
+  GemItem.cpp
+  FireBurning.cpp
+  Enemy.cpp
+  DisPlay.cpp
+  Column.cpp
+  Civilian1.cpp
+  Camera.cpp
+  Camel.cpp
+  CTreeObject.cpp
+  Bar.cpp
+  AppleItem.cpp
+  AladdinGame.cpp
+  AladdinAction.cpp
+  ActionGround.cpp
+  AbuItem.cpp
+  MyAladdin.vcxproj -> C:\Users\huynh\Desktop\GameMegaman (1)\GameMegaman\GameMegaman\Debug\Aladdin_Directx.exe
+  MyAladdin.vcxproj -> C:\Users\huynh\Desktop\GameMegaman (1)\GameMegaman\GameMegaman\Debug\Aladdin_Directx.pdb (Full PDB)

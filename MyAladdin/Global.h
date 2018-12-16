@@ -11,14 +11,14 @@
 #define FRAME_PER_SECOND	35
 
 //Maximum of World port
-#define WORLD_Y				7933
-#define WORLD_X				7933
+#define WORLD_Y				9542
+#define WORLD_X				9542
 
-#define MAP_WIDTH			7933 //(4771*2 trong đó 4771 là chiều rộng thực sự của map, 2 là scale
-#define MAP_HEIGHT			2039 //(688* 2.5 trong đó 688 là chiều cao thực sự của map 2.5 là vector scale)
+#define MAP_WIDTH			9542 //(4771*2 trong đó 4771 là chiều rộng thực sự của map, 2 là scale
+#define MAP_HEIGHT			1720 //(688* 2.5 trong đó 688 là chiều cao thực sự của map 2.5 là vector scale)
 
 //Gia tốc trọng trường trong môi trường game
-#define ACCELERATION		8000
+#define ACCELERATION		8000 //15000
 
 class Global
 {
@@ -43,9 +43,20 @@ public:
 
 	enum EState
 	{
-		
-		
-		
+		Stand,
+		Stand1,
+		Stand2,
+		Stand3,
+		RecoveryStand,
+		Run,
+		Climb,
+		Climb_Drop,
+		Swing,
+		StopSwing,
+		LookUp,
+		LookDown,
+		SitDown,
+		StandUp,
 		PushWall,
 		StopRun,
 
@@ -104,11 +115,8 @@ public:
 		Knife,
 
 		Appearance,
-		Stand,
 		Stand_shoot,
-		Run,
 		Run_shoot,
-		Climb,
 		Jump,
 		Jump_shoot,
 		In_climb,
@@ -123,6 +131,34 @@ public:
 		Hurt,
 		Defense_hurt,
 		Weak_sit,
+		notorbanger_jump,
+		notorbanger_attack_1,
+		notorbanger_after_attack_1,
+		notorbanger_attack_2,
+		notorbanger_after_attack_2,
+		notorbanger_bullet,
+		notorbanger_fragment_1,
+		notorbanger_fragment_2,
+		notorbanger_fragment_3,
+		notorbanger_fragment_4,
+		headgunner,
+		headgunner_launch_rocket_1,
+		headgunner_launch_rocket_2,
+		headgunner_rocket,
+		headgunner_fragment_1,
+		headgunner_fragment_2,
+		headgunner_fragment_3,
+		headgunner_fragment_4,
+		helit_fan,
+		helit,
+		helit_launch_rocket,
+		helit_rocket,
+		helit_fragment_1,
+		helit_fragment_2,
+		helit_fragment_3,
+		hangeter,
+		hangeter_lighting,
+
 	};
 
 	enum EControl
@@ -134,7 +170,7 @@ public:
 		UpControl,
 		JumpControl,
 		ThrowControl,
-		HitControl
+		DashControl
 	};
 
 	enum EDirection
@@ -188,7 +224,15 @@ public:
 		JAFARBULLET,
 		SNAKEBULLET,
 		PLATFORM,
-		FIRE
+		FIRE,
+		NOTORBANGER,
+		HEADGUNNER,
+		HELIT,
+		HANGETER,
+		NOTORBANGERBULLET,
+		HELITBULLET,
+		GUNNER,
+		
 	};
 	enum ETypeObject
 	{

@@ -1,6 +1,6 @@
 #include "Map.h"
 
-///check github
+
 
 Map::Map()
 {
@@ -26,11 +26,11 @@ void Map::SetCamera(Camera * camera)
 
 void Map::LoadResource()
 {
-	this->_rectMap1.update(0, 0, 7933, 2039, D3DXVECTOR3(0, 0, 0));
-	this->_rectMap2.update(2039, 0, 7933, 4078, D3DXVECTOR3(0, 0, 0));
+	this->_rectMap1.update(0, 0, 7933, 4078, D3DXVECTOR3(0, 0, 0));
+	this->_rectMap2.update(0, 0, 4771, 688, D3DXVECTOR3(0, 0, 0));
 	this->_mapTexturePart1 = ResourceImage::Instance()->getMapTexture()[0];
 	this->_mapTexturePart2 = ResourceImage::Instance()->getMapTexture()[1];
-	this->_transform._scale = D3DXVECTOR2(1, 1);
+	this->_transform._scale = D3DXVECTOR2(2, 2);
 }
 
 void Map::Render(Map::EMapID mapId)

@@ -23,8 +23,6 @@ void Stick::update(float deltaTime)
 {
 	if (this->GetCurrentFrame(Global::JumpRun) == 1 )
 	{
-		this->_sound = Sound::Instance();
-		this->_sound->play(SOUND_STICK);
 	}
 	if (this->_start)
 		this->UpdateRender(Global::JumpRun);
@@ -59,7 +57,7 @@ Collision::ResultCollision Stick::processCollision(Object * obj)
 	if (result.flag)
 	{
 		Aladdin* aladdin = (Aladdin*)obj;
-		aladdin->JumpRotate();
+		//aladdin->JumpRotate();
 		result.intersectionPoint.x = obj->getX() + obj->getVx() * result.collisionTime;
 		result.intersectionPoint.y = obj->getY() + obj->getVy() *result.collisionTime;
 	}

@@ -72,8 +72,7 @@ Collision::ResultCollision Enemy::processCollision(Object * obj)
 		return Collision::ResultCollision();
 	if (this->_state == Global::Dead && this->GetCurrentFrame(Global::Dead) == 1 && this->getId() != Global::JAFAR && this->getId() != Global::GUARD3)
 	{
-		this->_sound = Sound::Instance();
-		this->_sound->play(SOUND_CLOUD_POOF);
+
 	}
 	switch (obj->getId())
 	{
@@ -102,8 +101,6 @@ Collision::ResultCollision Enemy::processCollision(Object * obj)
 			}
 			if (Collision::Instance()->AABB(aladdin->getRectSword(), this->getRectSword()) && this->isAttack())
 			{
-				this->_sound = Sound::Instance();
-				this->_sound->play(SOUND_SWORD_CHING);
 				if (aladdin->getState() == Global::HitClimb)
 					aladdin->setState(Global::Climb);
 				else
@@ -132,8 +129,6 @@ Collision::ResultCollision Enemy::processCollision(Object * obj)
 				{
 					this->_hp--;
 					bullet->setState(Global::Dead);
-					this->_sound = Sound::Instance();
-					this->_sound->play(SOUND_JAFAR_SNAKE);
 				}
 				else
 				{

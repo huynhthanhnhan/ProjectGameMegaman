@@ -25,25 +25,21 @@ void Guard2::update(float deltaTime)
 {
 	if (this->GetCurrentFrame(Global::Hurting) == 1 && this->_state == Global::Hurting)
 	{
-		this->_sound = Sound::Instance();
-		this->_sound->play(SOUND_GUARD_HIT2);
+
 	}
 	if (_state == Global::OnTrap)
 	{
 		if (this->GetCurrentFrame(Global::OnTrap) == 0)
 		{
-			this->_sound = Sound::Instance();
-			this->_sound->play(SOUND_GUARD_A);
+
 		}
 		if (this->GetCurrentFrame(Global::OnTrap) == 4)
 		{
-			this->_sound = Sound::Instance();
-			this->_sound->play(SOUND_GUARD_E);
+
 		}
 		if (this->GetCurrentFrame(Global::OnTrap) == 8)
 		{
-			this->_sound = Sound::Instance();
-			this->_sound->play(SOUND_GUARD_O);
+		
 		}
 	}
 	if (this->_hp <= 0)

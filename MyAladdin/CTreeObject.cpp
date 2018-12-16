@@ -63,6 +63,9 @@ Global::EObject CTreeObject::parseId(int id)
 	case 28: return Global::JAFAR;
 	case 29: return Global::PLATFORM;
 	case 30: return Global::FIRE;
+	case 39: return Global::NOTORBANGER;
+	case 40: return Global::HELIT;
+	case 44: return Global::GUNNER;
 	}
 		
 	return Global::EObject();

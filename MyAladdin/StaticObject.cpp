@@ -1,5 +1,6 @@
 ﻿#include "StaticObject.h"
 #include"Aladdin.h"
+#include "Notorbanger.h"
 
 StaticObject*			StaticObject::__instance;
 
@@ -23,6 +24,21 @@ void StaticObject::clearGround()
 	this->_listGround.clear();
 }
 
+void StaticObject::clearRope()
+{
+	this->_listRope.clear();
+}
+
+void StaticObject::clearColumn()
+{
+	this->_listColumn.clear();
+}
+
+void StaticObject::clearBar()
+{
+	this->_listBar.clear();
+}
+
 void StaticObject::clearStair()
 {
 	this->_listStair.clear();
@@ -33,11 +49,20 @@ void StaticObject::clearWall()
 	this->_listWall.clear();
 }
 
+void StaticObject::clearTrap()
+{
+	this->_listTrap.clear();
+}
+
 void StaticObject::clear()
 {
 	this->clearGround();
+	this->clearRope();
+	this->clearColumn();
+	this->clearBar();
 	this->clearStair();
 	this->clearWall();
+	this->clearTrap();
 }
 
 void StaticObject::addGround(Ground * ground)
@@ -45,15 +70,49 @@ void StaticObject::addGround(Ground * ground)
 	this->_listGround.push_back(ground);
 }
 
+void StaticObject::addRope(Rope * rope)
+{
+	this->_listRope.push_back(rope);
+}
+
+void StaticObject::addColumn(Column * column)
+{
+	this->_listColumn.push_back(column);
+}
 
 void StaticObject::addWall(Wall * wall)
 {
 	this->_listWall.push_back(wall);
 }
 
+void StaticObject::addActionGround(ActionGround * acGround)
+{
+	this->_listActionGround.push_back(acGround);
+}
+
+void StaticObject::addStick(Stick * stick)
+{
+	this->_listStick.push_back(stick);
+}
+
+void StaticObject::addTrap(Trap * trap)
+{
+	this->_listTrap.push_back(trap);
+}
+
+void StaticObject::addBar(Bar * bar)
+{
+	this->_listBar.push_back(bar);
+}
+
 void StaticObject::addStair(Stair * stair)
 {
 	this->_listStair.push_back(stair);
+}
+
+void StaticObject::addPlatform(Platform * platform)
+{
+	this->_listPlatform.push_back(platform);
 }
 
 Collision::ResultCollision StaticObject::processCollision(Object * obj)
@@ -64,17 +123,43 @@ Collision::ResultCollision StaticObject::processCollision(Object * obj)
 	Collision::ResultCollision result;
 	Collision::ResultCollision resultG;
 	//=====================================================
+	//Rope
+	//=====================================================
+	result = this->ropeCollision(obj);
+	if (result.flag)
+		listLocation.push_back(result.intersectionPoint);
+	//=====================================================
+	//Column
+	//=====================================================	result = this->columnCollision(obj);
+	if (result.flag)
+		listLocation.push_back(result.intersectionPoint);
+	//=====================================================
+	//Platform
+	//=====================================================
+	result = this->platformCollision(obj);
+	if (result.flag)
+		listLocation.push_back(result.intersectionPoint);
+
+	//=====================================================
 	//Ground
 	//=====================================================
 	resultG = this->groundCollision(obj);
 	if (resultG.flag)
 		listLocation.push_back(resultG.intersectionPoint);
 	//=====================================================
-	//Stair
+	//Drop Ground
 	//=====================================================
-	result = this->stairCollision(obj);
+	/*result = this->actionGroundCollision(obj);
 	if (result.flag)
 		listLocation.push_back(result.intersectionPoint);
+*/
+
+	//=====================================================
+	//Stair
+	//=====================================================
+	/*result = this->stairCollision(obj);
+	if (result.flag)
+		listLocation.push_back(result.intersectionPoint);*/
 
 	//=====================================================
 	//Wall
@@ -86,12 +171,43 @@ Collision::ResultCollision StaticObject::processCollision(Object * obj)
 		if (obj->getId() == Global::ALADDIN)
 		{
 			Aladdin* aladdin = (Aladdin*)obj;
-			if(aladdin->getState()==Global::Jump)
-				aladdin->In_climb();
+			aladdin->In_climb();
 		}
-		listLocation.push_back(result.intersectionPoint);
+		if (resultG.flag && obj->getId() == Global::ALADDIN)
+		{
+			Aladdin* aladdin = (Aladdin*)obj;
+			aladdin->Stand();
+		}	
 	}
+
+	if (obj->getId() == Global::NOTORBANGER && resultG.flag)
+	{
+		((Notorbanger*)obj)->bJump = false;
+		((Notorbanger*)obj)->_timeAttack = 0;
+		//((Notorbanger*)obj)->SetCurrentFrame(G)
+		((Notorbanger*)obj)->takeAction(Global::Attack);
+	}
+
 	//=====================================================
+	//DropGround
+	//=====================================================
+	result = this->actionGroundCollision(obj);
+	if (result.flag)
+		listLocation.push_back(result.intersectionPoint);
+
+	//=====================================================
+	//Bar
+	//=====================================================
+	result = this->barCollision(obj);
+	if (result.flag)
+		listLocation.push_back(result.intersectionPoint);
+
+	//=====================================================
+	//Stick
+	//=====================================================
+	result = this->stickCollision(obj);
+	if (result.flag)
+		listLocation.push_back(result.intersectionPoint);
 
 	for each (auto location in listLocation)
 	{
@@ -117,6 +233,26 @@ Collision::ResultCollision StaticObject::processCollision(Object * obj)
 		result.flag = false;
 
 	return result;
+}
+
+bool StaticObject::isRopeCollision(Object * obj)
+{
+	for each (auto rope in this->_listRope)
+	{
+		if (Collision::Instance()->AABB(rope->getRectBound(), obj->getRectBound()))
+			return true;
+	}
+	return false;
+}
+
+bool StaticObject::isColumnCollision(Object * obj)
+{
+	for each (auto column in this->_listColumn)
+	{
+		if (Collision::Instance()->AABB(column->getRectBound(), obj->getRectBound()))
+			return true;
+	}
+	return false;
 }
 
 Collision::ResultCollision StaticObject::groundCollision(Object * obj)
@@ -146,7 +282,7 @@ Collision::ResultCollision StaticObject::groundCollision(Object * obj)
 				dyMin = dy;
 			}
 
-			
+			actionObject->setGround(true);
 
 			if (obj->getId() == Global::ALADDIN)
 			{
@@ -155,18 +291,159 @@ Collision::ResultCollision StaticObject::groundCollision(Object * obj)
 				if (aladdin->IsJump() && (KeyBoard::Instance()->isKeyPress(DIK_LEFT) || KeyBoard::Instance()->isKeyPress(DIK_RIGHT)))
 				{
 					aladdin->setState(Global::Run);
-					aladdin->getAladdinAction()->SetCurrentFrame(Global::Run, 6);
-					
+					aladdin->getAladdinAction()->SetCurrentFrame(Global::Run, 7);
 				}
-				if (!aladdin->isGround())
-					aladdin->Stand();
 			}
-
-			actionObject->setGround(true);
 		}
 	}
 
 	return result2;
+}
+Collision::ResultCollision StaticObject::platformCollision(Object * obj)
+{	
+
+	ActionObject* actionObject = (ActionObject*)obj;
+	int  dxMin = INT_MAX, dyMin = INT_MAX;
+	Collision::ResultCollision result,result2;
+	//Chỉ xét đối tượng aladdin với platform thôi
+	if (obj->getId() != Global::ALADDIN)
+		return result;
+
+	int x, y;
+	Aladdin* aladdin = (Aladdin*)obj;
+	for each (auto platform in this->_listPlatform)
+	{
+		result = platform->processCollision(obj);
+		if (result.flag)
+		{
+			int dx = abs(result.intersectionPoint.x - obj->getX());
+			int dy = abs(result.intersectionPoint.y - obj->getY());
+			result2.flag = result.flag;
+			if (dx < dxMin)
+			{
+				result2.intersectionPoint.x = result.intersectionPoint.x;
+				dxMin = dx;
+			}
+
+			if (dy < dyMin)
+			{
+				result2.intersectionPoint.y = result.intersectionPoint.y;
+				dyMin = dy;
+			}
+			actionObject->setGround(true);
+
+			if (obj->getId() == Global::ALADDIN)
+			{
+				Aladdin* aladdin = (Aladdin*)actionObject;
+				aladdin->refreshTime();
+				if (aladdin->IsJump() && (KeyBoard::Instance()->isKeyPress(DIK_LEFT) || KeyBoard::Instance()->isKeyPress(DIK_RIGHT)))
+				{
+					aladdin->setState(Global::Run);
+					aladdin->getAladdinAction()->SetCurrentFrame(Global::Run, 7);
+				}
+			}
+		}
+	}
+	return result2;
+}
+Collision::ResultCollision StaticObject::ropeCollision(Object * obj)
+{
+	Collision::ResultCollision result;
+	//Chỉ xét đối tượng aladdin với rope thôi
+	if (obj->getId() != Global::ALADDIN)
+		return result;
+
+	int x, y;
+
+	Aladdin* aladdin = (Aladdin*)obj;
+
+	for each (auto rope in this->_listRope)
+	{
+		if (Collision::Instance()->AABB(rope->getRectBound(), aladdin->getRectBound2()))
+		{
+			Aladdin* aladdin = (Aladdin*)obj;
+			if (aladdin->IsJump()
+				&& obj->getVy() <= 0)
+			{
+				result.flag = true;
+				x = rope->getX() + rope->getWidth() / 2;
+				y = obj->getY();
+				aladdin->setState(Global::Climb);
+				aladdin->getAladdinAction()->setRope(rope->getRectBound());
+				result.intersectionPoint.x = x;
+				result.intersectionPoint.y = y;
+				return result;
+			}
+		}
+
+		result = rope->processCollision(obj);
+		if (result.flag)
+		{
+			aladdin->setState(Global::Climb);
+			aladdin->getAladdinAction()->setRope(rope->getRectBound());
+			return result;
+		}
+	}
+
+	return result;
+}
+
+Collision::ResultCollision StaticObject::columnCollision(Object * obj)
+{
+	Collision::ResultCollision result;
+	//Chỉ xét đối tượng aladdin với column thôi
+	if (obj->getId() != Global::ALADDIN)
+		return result;
+
+	int x, y;
+
+	Aladdin* aladdin = (Aladdin*)obj;
+
+	for each (auto column in this->_listColumn)
+	{
+		if (Collision::Instance()->AABB(column->getRectBound(), aladdin->getRectBound2()))
+		{
+			Aladdin* aladdin = (Aladdin*)obj;
+			if (aladdin->IsJump()
+				&& obj->getVy() <= 0)
+			{
+				result.flag = true;
+				x = column->getX() + column->getWidth() / 2;
+				y = obj->getY();
+				aladdin->setState(Global::Climb_Drop);
+				aladdin->getAladdinAction()->setColumn(column->getRectBound());
+				result.intersectionPoint.x = x;
+				result.intersectionPoint.y = y;
+				return result;
+			}
+		}
+
+		result = column->processCollision(obj);
+		if (result.flag)
+		{
+			aladdin->setState(Global::Climb_Drop);
+			aladdin->getAladdinAction()->setColumn(column->getRectBound());
+			return result;
+		}
+	}
+
+	return result;
+}
+
+Collision::ResultCollision StaticObject::barCollision(Object * obj)
+{
+	if (obj->getId() != Global::ALADDIN)
+		return Collision::ResultCollision();
+	Collision::ResultCollision result;
+
+	for each (auto bar in this->_listBar)
+	{
+		result = bar->processCollision(obj);
+		if (result.flag)
+			return result;
+	}
+
+	return result;
 }
 
 Collision::ResultCollision StaticObject::stairCollision(Object * obj)
@@ -186,22 +463,12 @@ Collision::ResultCollision StaticObject::stairCollision(Object * obj)
 Collision::ResultCollision StaticObject::wallCollision(Object * obj)
 {
 	Collision::ResultCollision result;
-	ActionObject* actionObject = (ActionObject*)obj;
 
 	for each (auto wall in this->_listWall)
 	{
 		result = wall->processCollision(obj);
 		if (result.flag)
-		{
-			if (obj->getId() == Global::ALADDIN)
-			{
-				Aladdin* aladdin = (Aladdin*)actionObject;
-				aladdin->refreshTime();
-				aladdin->setState(Global::In_climb);
-				aladdin->getAladdinAction()->SetCurrentFrame(Global::In_climb, 2);
-			}
 			return result;
-		}
 	}
 	return result;
 }
@@ -213,7 +480,69 @@ Collision::ResultCollision StaticObject::actionGroundCollision(Object * obj)
 
 	int  dxMin = INT_MAX, dyMin = INT_MAX;
 
+	for each (auto ground in this->_listActionGround)
+	{
+		result = ground->processCollision(obj);
+		if (result.flag)
+		{
+			int dx = abs(result.intersectionPoint.x - obj->getX());
+			int dy = abs(result.intersectionPoint.y - obj->getY());
+			result2.flag = result.flag;
+			if (dx < dxMin)
+			{
+				result2.intersectionPoint.x = result.intersectionPoint.x;
+				dxMin = dx;
+			}
+
+			if (dy < dyMin)
+			{
+				result2.intersectionPoint.y = result.intersectionPoint.y;
+				dyMin = dy;
+			}
+
+			actionObject->setGround(true);
+
+			if (obj->getId() == Global::ALADDIN)
+			{
+				Aladdin* aladdin = (Aladdin*)actionObject;
+				aladdin->refreshTime();
+				if (aladdin->IsJump() && (KeyBoard::Instance()->isKeyPress(DIK_LEFT) || KeyBoard::Instance()->isKeyPress(DIK_RIGHT)))
+				{
+					aladdin->setState(Global::Run);
+					aladdin->getAladdinAction()->SetCurrentFrame(Global::Run, 7);
+				}
+			}
+		}
+	}
+
 	return result2;
+}
+
+Collision::ResultCollision StaticObject::stickCollision(Object * obj)
+{
+	if (obj->getId() != Global::ALADDIN)
+		return Collision::ResultCollision();
+
+	Collision::ResultCollision result;
+	for each (auto stick in this->_listStick)
+	{
+		result = stick->processCollision(obj);
+		if (result.flag)
+			return result;
+	}
+	return Collision::ResultCollision();
+}
+
+Collision::ResultCollision StaticObject::trapCollision(Object * obj)
+{
+	Collision::ResultCollision result;
+	for each (auto trap in this->_listTrap)
+	{
+		result = trap->processCollision(obj);
+		if (result.flag)
+			return Collision::ResultCollision();
+	}
+	return Collision::ResultCollision();
 }
 
 void StaticObject::permissionStair(Object * obj)

@@ -25,8 +25,7 @@ void Guard1::update(float deltaTime)
 {
 	if (this->GetCurrentFrame(Global::Hurting) == 1 && this->_state == Global::Hurting)
 	{
-		this->_sound = Sound::Instance();
-		this->_sound->play(SOUND_GUARD_HIT1);
+
 	}
 	if (this->_hp <= 0)
 		this->takeAction(Global::Dead);

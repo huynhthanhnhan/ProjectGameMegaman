@@ -74,8 +74,7 @@ void Civilian1Bullet::UpdateRender(Global::EState currentState)
 		{
 			if (this->GetCurrentFrame(_state) == 7)
 			{
-				this->_sound = Sound::Instance();
-				this->_sound->play(SOUND_CLAY_POT);
+				
 			}
 			if (this->GetCurrentFrame(_state) < 6)
 				this->SetCurrentFrame(_state, 6);

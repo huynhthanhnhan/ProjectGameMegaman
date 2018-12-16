@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Animations>
+	<Animation name="notorbanger_jump" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="3" y="6" w="41" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="48" y="6" w="41" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="100" y="6" w="41" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="146" y="2" w="48" h="41" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="100" y="6" w="41" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="48" y="6" w="41" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="3" y="6" w="41" h="32" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_attack_1" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="7" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="52" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="94" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="52" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_after_attack_1" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="94" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="52" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="7" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_attack_2" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="7" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="52" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="94" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="139" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="183" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_after_attack_2" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="183" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="139" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="94" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="52" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="7" y="106" w="40" h="47" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_bullet" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="185" y="66" w="8" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_fragment_1" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="8" y="168" w="18" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_fragment_2" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="32" y="165" w="11" h="12" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_fragment_3" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="47" y="157" w="22" h="23" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="notorbanger_fragment_4" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="74" y="157" w="19" h="20" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="headgunner" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="1" y="187" w="38" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="headgunner_launch_rocket_1" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="1" y="187" w="38" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="42" y="187" w="38" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="84" y="187" w="38" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="125" y="187" w="41" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="headgunner_launch_rocket_2" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="2" y="242" w="38" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="45" y="242" w="38" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="86" y="241" w="41" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="134" y="240" w="38" h="45" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="headgunner_rocket" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="177" y="196" w="21" h="5" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="200" y="195" w="23" h="7" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="headgunner_fragment_1" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="174" y="206" w="15" h="16" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="headgunner_fragment_2" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="192" y="206" w="8" h="12" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="headgunner_fragment_3" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="206" y="210" w="19" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="headgunner_fragment_4" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="205" y="221" w="7" h="13" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="helit_fan" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="5" y="298" w="17" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="23" y="298" w="27" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="52" y="298" w="39" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="93" y="298" w="27" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="122" y="298" w="17" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="helit" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="5" y="319" w="24" h="29" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="helit_launch_rocket" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="35" y="319" w="24" h="29" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="helit_rocket" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="68" y="329" w="15" h="10" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="helit_fragment_1" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="91" y="322" w="26" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="helit_fragment_2" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="123" y="319" w="12" h="17" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="helit_fragment_3" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="138" y="313" w="17" h="23" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="hangeter" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="234" y="7" w="59" h="24" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="hangeter_lighting" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="241" y="37" w="45" h="6" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="243" y="55" w="45" h="6" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="242" y="72" w="43" h="6" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="240" y="89" w="43" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="241" y="107" w="45" h="6" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="240" y="123" w="43" h="8" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="239" y="140" w="45" h="6" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="239" y="154" w="43" h="6" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+</Animations>

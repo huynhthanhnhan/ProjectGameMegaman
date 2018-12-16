@@ -4,6 +4,8 @@
 #include<map>
 #include"QNode.h"
 #include"Ground.h"
+#include"Rope.h"
+#include"Column.h"
 #include"ResourceFile.h"
 #include"Object.h"
 #include"ObjectFactory.h"
