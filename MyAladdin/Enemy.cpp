@@ -81,7 +81,7 @@ Collision::ResultCollision Enemy::processCollision(Object * obj)
 		if (!this->isCollision())
 			break;
 
-		this->_aladdinLocation = (D3DXVECTOR2)obj->getCurrentLocation();
+		this->_aladdinLocation = (D3DXVECTOR2)(obj->getCurrentLocation());
 		if (Collision::Instance()->AABB(obj->getRectBound(), this->_region))
 			this->_start = true;
 

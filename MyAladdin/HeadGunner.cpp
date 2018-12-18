@@ -32,14 +32,26 @@ void HeadGunner::update(float deltaTime)
 
 	if (this->_isDead)
 		return;
-	if (abs(this->_x - this->_aladdinLocation.x) <= D_ATTACK_GUNNER)
-	{
-		this->takeAction(Global::Attack);
-	}
+
+	this->_direct = (this->_x >= this->_aladdinLocation.x) ? Global::Left : Global::Right;
+
 	if (this->_start)
 		this->takeAction(Global::Stand);
 	else if (this->_isFinishAction)
 		this->takeAction(Global::NoneAction);
+
+	if (abs(this->_x - this->_aladdinLocation.x) <= D_ATTACK_GUNNER)
+	{
+		this->takeAction(Global::Attack);
+		if (this->GetCurrentFrame(_state) == 3 && this->_timeAttack >= 10)
+		{
+			BulletManager::Instance()->addBullet(new HeadGunnerBullet(this->_x, this->_y + this->_height - 57, this->_direct));
+			_timeAttack = 0;
+		}
+			
+	}
+	this->_timeAttack++;
+	this->_timeFrame++;
 }
 
 bool HeadGunner::isAttack()
@@ -49,7 +61,7 @@ bool HeadGunner::isAttack()
 
 void HeadGunner::DetermineDirection(Global::EState state, Global::EDirection direct)
 {
-	this->mListSprite[state]->FlipVertical(direct == Global::Left);
+	this->mListSprite[state]->FlipVertical(direct == Global::Right);
 }
 
 void HeadGunner::Refresh()
@@ -77,5 +89,15 @@ void HeadGunner::UpdateRender(Global::EState currentState)
 	this->_isFinishAction = (this->GetCurrentFrame(currentState) == 0) ? true : false;
 	if (this->_state == Global::Dead && this->GetCurrentFrame(this->_state) == 0)
 	this->_isDead = true;
+
+	if (_timeFrame < 5 )
+	{
+		if (this->GetCurrentFrame(currentState) >= 1)
+			this->SetCurrentFrame(currentState, this->GetCurrentFrame(currentState) - 1);
+	}
+	else
+	{
+		_timeFrame = 0;
+	}
 
 }

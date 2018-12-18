@@ -2,10 +2,11 @@
 #ifndef __HEADGUNNER_H__
 #define __HEADGUNNER_H__
 #include "Enemy.h"
+#include "HeadGunnerBullet.h"
 #define V_GUNNER 10
 #define W_GUNNER_NORMAL 80
 #define H_GUNNER_NORMAL 130
-#define D_ATTACK_GUNNER 80
+#define D_ATTACK_GUNNER 150
 class HeadGunner :
 	public Enemy
 {
@@ -18,6 +19,8 @@ public:
 	// Inherited via Enemy
 	virtual void		update(float deltaTime) override;
 	virtual bool		isAttack() override;
+	float _timeFrame;
+	float _timeAttack = 0;
 private:
 	virtual void		DetermineDirection(Global::EState state, Global::EDirection direct);
 	virtual void		Refresh() override;

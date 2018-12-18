@@ -15,7 +15,7 @@ NotorbangerBullet::NotorbangerBullet(int x, int y, Global::EDirection direct)
 	this->_rotation = 0;
 	this->updateBody();
 	this->_timeLife = 0;
-	this->_distanceBullet = 10;// DISTANCE_CIVILIANBULLET;
+	this->_distanceBullet = 20;// DISTANCE_CIVILIANBULLET;
 	this->LoadResource();
 }
 

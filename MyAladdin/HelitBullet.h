@@ -14,6 +14,7 @@ public:
 	// Kế thừa lớp Bullet
 	Sound* _sound;
 	virtual bool isFinish() override;
+	float _timeLife;
 	virtual Collision::ResultCollision processCollision(Object * obj) override;
 	virtual bool isCanAttack() override;
 private:

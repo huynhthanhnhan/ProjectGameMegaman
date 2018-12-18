@@ -37,53 +37,56 @@ void Notorbanger::update(float deltaTime)
 
 	if (this->_isDead)
 		return;
-	
-	if (this->_start)
-		this->takeAction(Global::Attack);
-	else if (this->_isFinishAction)
-		this->takeAction(Global::NoneAction);
-	if (this->_state == Global::Attack)
-		_timeDelayCount--;
-	if (this->_state == Global::Attack && this->GetCurrentFrame(_state) == 2 /*&& _canAttack*/ && _time > 0 && _timeDelayCount < 0)
-	{
-		BulletManager::Instance()->addBullet(new NotorbangerBullet(this->_x-10 + this->_width - 20, this->_y + this->_height + 35, this->_direct));
-		_time--;
-		_timeDelayCount = _timeDelay;
-	}
-	else
-	{
-		_time = 3;
-	}
-	this->caculateSpeed(deltaTime);
 
-	if (!bJump)
+	this->_direct = (this->_x >= this->_aladdinLocation.x) ? Global::Left : Global::Right;
+	if (abs(this->_x - this->_aladdinLocation.x) <= D_ATTACK_NOTORBANGER)
 	{
-		this->takeAction(Global::Attack);
-	}
-	else
-	{
-		this->takeAction(Global::notorbanger_jump);
-	}
+		if (this->_start)
+			this->takeAction(Global::Attack);
+		else if (this->_isFinishAction)
+			this->takeAction(Global::NoneAction);
+		if (this->_state == Global::Attack)
+			_timeDelayCount--;
+		if (this->_state == Global::Attack && this->GetCurrentFrame(_state) == 2 && _time > 0 && _timeDelayCount < 0)
+		{
+			BulletManager::Instance()->addBullet(new NotorbangerBullet(this->_x - 30*((this->_direct == Global::Left) ? 1 : -1) + this->_width - 20, this->_y + this->_height + 40, this->_direct));
+			_time--;
+			_timeDelayCount = _timeDelay;
+		}
+		else
+		{
+			_time = 3;
+		}
+		this->caculateSpeed(deltaTime);
 
-	Collision::ResultCollision result = StaticObject::Instance()->processCollision(this);
-	if (!result.flag)
-	{
-		//Update new location
-		this->_isGround = false;
-		this->_x += this->_vx;
-		this->_y += this->_vy;
-	}
-	else
-	{
-		this->_x = result.intersectionPoint.x;
-		this->_y = result.intersectionPoint.y;
-	}
-	bJump;
+		if (!bJump)
+		{
+			this->takeAction(Global::Attack);
+		}
+		else
+		{
+			this->takeAction(Global::notorbanger_jump);
+		}
 
-	_rectBound.update(_x - _width / 2, _y + this->_height, this->_width, this->_height);
-	//_rectBound2.update(_x - width / 2, _y + this->_height, width, this->_height);
-		
-	_timeAttack++;
+		Collision::ResultCollision result = StaticObject::Instance()->processCollision(this);
+		if (!result.flag)
+		{
+			//Update new location
+			this->_isGround = false;
+			this->_x += this->_vx;
+			this->_y += this->_vy;
+		}
+		else
+		{
+			this->_x = result.intersectionPoint.x;
+			this->_y = result.intersectionPoint.y;
+		}
+		bJump;
+
+		_rectBound.update(_x - _width / 2, _y + this->_height, this->_width, this->_height);
+		//_rectBound2.update(_x - width / 2, _y + this->_height, width, this->_height);
+		_timeAttack++;
+	}
 }
 
 void Notorbanger::caculateSpeed(float deltaTime)
@@ -95,7 +98,7 @@ void Notorbanger::caculateSpeed(float deltaTime)
 	float angle = 0;
 	bool canMoveX = true, canMoveY = true;
 	Global::EDirection directX, directY;
-	directX = _direct;
+	directX = this->_direct;
 	directY = Global::Up;
 	ay = _ay;
 	if (bJump)
@@ -116,8 +119,8 @@ void Notorbanger::caculateSpeed(float deltaTime)
 	vx = (canMoveX) ? this->_v0*cos(angle) : 0;
 	vy = (canMoveY) ? this->_v0*sin(angle) : 0;
 
-	vx *= (directX == Global::Right) ? 1 : -1;
-	ax *= (directX == Global::Right) ? 1 : -1;
+	vx *= (directX == Global::Left) ? 1 : -1;
+	ax *= (directX == Global::Left) ? 1 : -1;
 
 	float vx_Immediately = vx + ax*(_timeAction - deltaTime);
 	float vy_Immediately = vy + ay*(_timeAction - deltaTime);
@@ -136,7 +139,7 @@ bool Notorbanger::isAttack()
 
 void Notorbanger::DetermineDirection(Global::EState state, Global::EDirection direct)
 {
-	this->mListSprite[state]->FlipVertical(direct == Global::Left);
+	this->mListSprite[state]->FlipVertical(direct == Global::Right);
 }
 
 void Notorbanger::Refresh()
@@ -217,28 +220,3 @@ void Notorbanger::UpdateRender(Global::EState currentState)
 		this->_isDead = true;
 }
 
-Collision::ResultCollision Notorbanger::processCollision(Object * obj)
-{
-	//if (this->_isDead)
-	//	return Collision::ResultCollision();
-	//switch (obj->getId())
-	//{
-	//case Global::ALADDIN:
-	//{
-	//	this->_aladdinLocation = (D3DXVECTOR2)obj->getCurrentLocation();
-	//	if (Collision::Instance()->AABB(obj->getRectBound(), this->_region))
-	//		this->_start = true;
-	//	else
-	//		this->_start = false;
-
-	//	Aladdin* aladdin = (Aladdin*)obj;
-	//	if (aladdin->IsHit())
-	//	{
-	//		if (Collision::Instance()->AABB(aladdin->getRectSword(), this->_rectBound))
-	//			this->takeAction(Global::Dead);
-	//	}
-	//	break;
-	//}
-	//}
-	return Collision::ResultCollision();
-}

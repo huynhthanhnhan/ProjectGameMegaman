@@ -151,6 +151,8 @@ public:
 		headgunner_fragment_4,
 		helit_fan,
 		helit,
+		helit_Stand,
+		helit_Shoot,
 		helit_launch_rocket,
 		helit_rocket,
 		helit_fragment_1,
@@ -231,6 +233,7 @@ public:
 		HANGETER,
 		NOTORBANGERBULLET,
 		HELITBULLET,
+		HEADGUNNERBULLET,
 		GUNNER,
 		
 	};

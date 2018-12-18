@@ -9,11 +9,12 @@ HelitBullet::HelitBullet(int x, int y, Global::EDirection direct)
 	this->_state = Global::Attack;
 	this->_width = 30;
 	this->_width = 30;
-	this->_vx = -3;
+	this->_vx = 3;
 	this->_ay = 0; //-ACCELERATION / 2;
 	this->_angle = 0;
 	this->_rotation = 0;
 	this->updateBody();
+	this->_timeLife = 0;
 	this->_distanceBullet = 10;// DISTANCE_CIVILIANBULLET;
 	this->LoadResource();
 }
@@ -24,7 +25,8 @@ HelitBullet::~HelitBullet()
 
 bool HelitBullet::isFinish()
 {
-	return (this->GetCurrentFrame(Global::Attack) == 14 || this->GetCurrentFrame(Global::Dead) == 9);
+	return (this->GetCurrentFrame(Global::Attack) == 14 || this->GetCurrentFrame(Global::Dead) == 9
+		||this->_timeLife>=20);
 }
 
 Collision::ResultCollision HelitBullet::processCollision(Object * obj)
@@ -80,4 +82,5 @@ void HelitBullet::UpdateRender(Global::EState currentState)
 	//			this->SetCurrentFrame(_state, 6);
 	//	}
 	//}
+	this->_timeLife++;
 }

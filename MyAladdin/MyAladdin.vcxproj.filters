@@ -279,6 +279,9 @@
     <ClCompile Include="HelitBullet.cpp">
       <Filter>Game\Objects\Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="HeadGunnerBullet.cpp">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISence.h">
@@ -513,6 +516,9 @@
       <Filter>Game\Objects\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="HelitBullet.h">
+      <Filter>Game\Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="HeadGunnerBullet.h">
       <Filter>Game\Objects\Bullet</Filter>
     </ClInclude>
   </ItemGroup>

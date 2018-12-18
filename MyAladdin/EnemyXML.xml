@@ -90,6 +90,20 @@
 	<Animation name="helit" imagePath="Character.png" w="498" h="1053">	
 		<sprite x="5" y="319" w="24" h="29" ox="2" oy="9" oW="-303" oH="411"/>
 	</Animation>
+	<Animation name="helit_Stand" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="5" y="359" w="24" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="36" y="358" w="27" h="37" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="67" y="358" w="39" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="131" y="359" w="27" h="36" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="179" y="360" w="24" h="37" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
+	<Animation name="helit_Shoot" imagePath="Character.png" w="498" h="1053">	
+		<sprite x="4" y="407" w="24" h="34" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="35" y="406" w="27" h="37" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="66" y="406" w="39" h="37" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="130" y="407" w="27" h="37" ox="2" oy="9" oW="-303" oH="411"/>
+		<sprite x="178" y="408" w="24" h="38" ox="2" oy="9" oW="-303" oH="411"/>
+	</Animation>
 	<Animation name="helit_launch_rocket" imagePath="Character.png" w="498" h="1053">	
 		<sprite x="35" y="319" w="24" h="29" ox="2" oy="9" oW="-303" oH="411"/>
 	</Animation>

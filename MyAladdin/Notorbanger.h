@@ -6,6 +6,7 @@
 #define V_Notorbanger 10
 #define W_Notorbanger_NORMAL 32
 #define H_Notorbanger_NORMAL 64
+#define D_ATTACK_NOTORBANGER 200
 class Notorbanger
 	:public Enemy
 {
@@ -23,7 +24,6 @@ public:
 	int _timeDelay;
 	int _timeDelayCount = _timeDelay;
 	bool bJump = false;
-	virtual Collision::ResultCollision processCollision(Object * obj) override;
 private:
 	virtual void DetermineDirection(Global::EState state, Global::EDirection direct);
 	virtual void Refresh() override;

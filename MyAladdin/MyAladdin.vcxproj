@@ -179,6 +179,7 @@
     <ClCompile Include="Guard2.cpp" />
     <ClCompile Include="Guard3.cpp" />
     <ClCompile Include="HeadGunner.cpp" />
+    <ClCompile Include="HeadGunnerBullet.cpp" />
     <ClCompile Include="HealthPoint.cpp" />
     <ClCompile Include="HeartItem.cpp" />
     <ClCompile Include="Helit.cpp" />
@@ -261,6 +262,7 @@
     <ClInclude Include="Guard2.h" />
     <ClInclude Include="Guard3.h" />
     <ClInclude Include="HeadGunner.h" />
+    <ClInclude Include="HeadGunnerBullet.h" />
     <ClInclude Include="HealthPoint.h" />
     <ClInclude Include="HeartItem.h" />
     <ClInclude Include="Helit.h" />
